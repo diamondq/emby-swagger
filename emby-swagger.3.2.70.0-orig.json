@@ -1,0 +1,7635 @@
+{
+	"swagger": "2.0",
+	"schemes": ["http"],
+	"info": {
+		"description": "Explore the Emby Server API",
+		"version": "1.0.0",
+		"title": "Emby Server API",
+		"termsOfService": "https://emby.media/terms",
+		"contact": {
+			"name": "Emby Developer Community",
+			"url": "https://emby.media/community/index.php?/forum/47-developer-api"
+		}
+	},
+	"host": "",
+	"basePath": "/emby",
+	"tags": [],
+	"paths": {
+		"/Albums/{Id}/InstantMix": {
+			"get": {
+				"summary": "Creates an instant playlist based on a given album",
+				"tags": [],
+				"operationId": "GetInstantMixFromAlbum",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Albums/{Id}/Similar": {
+			"get": {
+				"summary": "Finds albums similar to a given album.",
+				"tags": [],
+				"operationId": "GetSimilarAlbums",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Artists": {
+			"get": {
+				"summary": "Gets all artists from a given item, folder, or the entire library",
+				"tags": [],
+				"operationId": "GetArtists",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Artists/{Id}/Similar": {
+			"get": {
+				"summary": "Finds albums similar to a given album.",
+				"tags": [],
+				"operationId": "GetSimilarArtists",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Artists/{Name}": {
+			"get": {
+				"summary": "Gets an artist, by name",
+				"tags": [],
+				"operationId": "GetArtist",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Artists/{Name}/Images/{Type}": {
+			"head": {
+				"tags": [],
+				"operationId": "GetItemByNameImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Artists/{Name}/Images/{Type}/{Index}": {
+			"head": {
+				"tags": [],
+				"operationId": "GetItemByNameImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Artists/{Name}/InstantMix": {
+			"get": {
+				"summary": "Creates an instant playlist based on a given artist",
+				"tags": [],
+				"operationId": "GetInstantMixFromArtist",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Artists/AlbumArtists": {
+			"get": {
+				"summary": "Gets all album artists from a given item, folder, or the entire library",
+				"tags": [],
+				"operationId": "GetAlbumArtists",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Artists/InstantMix": {
+			"get": {
+				"summary": "Creates an instant playlist based on a given artist",
+				"tags": [],
+				"operationId": "GetInstantMixFromArtistId",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Audio/{Id}/hls1/{PlaylistId}/{SegmentId}.{SegmentContainer}": {
+			"head": {
+				"tags": [],
+				"operationId": "GetHlsSegment",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Audio/{Id}/main.m3u8": {
+			"get": {
+				"summary": "Gets an audio stream using HTTP live streaming.",
+				"tags": [],
+				"operationId": "GetVariantHlsVideoPlaylist",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Audio/{Id}/master.m3u8": {
+			"head": {
+				"summary": "Gets an audio stream using HTTP live streaming.",
+				"tags": [],
+				"operationId": "GetMasterHlsAudioPlaylist",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Audio/{Id}/stream": {
+			"head": {
+				"summary": "Gets an audio stream",
+				"tags": [],
+				"operationId": "GetAudioStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Audio/{Id}/stream.{Container}": {
+			"head": {
+				"summary": "Gets an audio stream",
+				"tags": [],
+				"operationId": "GetAudioStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Audio/{Id}/universal": {
+			"head": {
+				"summary": "Gets an audio stream",
+				"tags": [],
+				"operationId": "GetUniversalAudioStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Audio/{Id}/universal.{Container}": {
+			"head": {
+				"summary": "Gets an audio stream",
+				"tags": [],
+				"operationId": "GetUniversalAudioStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Auth/Keys": {
+			"get": {
+				"tags": [],
+				"operationId": "GetApiKeys",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Auth/Keys/{Key}": {
+			"delete": {
+				"tags": [],
+				"operationId": "RevokeKey",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/AutoBoxSets/Refresh": {
+			"post": {
+				"tags": [],
+				"operationId": "RefreshRequest",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Branding/Configuration": {
+			"get": {
+				"summary": "Gets branding configuration",
+				"tags": [],
+				"operationId": "GetBrandingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Branding/Css": {
+			"get": {
+				"summary": "Gets custom css",
+				"tags": [],
+				"operationId": "GetBrandingCss",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Branding/Css.css": {
+			"get": {
+				"summary": "Gets custom css",
+				"tags": [],
+				"operationId": "GetBrandingCss",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Channels": {
+			"get": {
+				"summary": "Gets available channels",
+				"tags": [],
+				"operationId": "GetChannels",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Channels/{Id}/Features": {
+			"get": {
+				"summary": "Gets features for a channel",
+				"tags": [],
+				"operationId": "GetChannelFeatures",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Channels/{Id}/Items": {
+			"get": {
+				"summary": "Gets channel items",
+				"tags": [],
+				"operationId": "GetChannelItems",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Channels/Features": {
+			"get": {
+				"summary": "Gets features for a channel",
+				"tags": [],
+				"operationId": "GetAllChannelFeatures",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Channels/Folder": {
+			"get": {
+				"summary": "Gets the users channel folder, along with configured images",
+				"tags": [],
+				"operationId": "GetChannelFolder",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Channels/Items/Latest": {
+			"get": {
+				"summary": "Gets channel items",
+				"tags": [],
+				"operationId": "GetLatestChannelItems",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Collections": {
+			"post": {
+				"summary": "Creates a new collection",
+				"tags": [],
+				"operationId": "CreateCollection",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Collections/{Id}/Items": {
+			"delete": {
+				"summary": "Removes items from a collection",
+				"tags": [],
+				"operationId": "RemoveFromCollection",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Connect/Exchange": {
+			"get": {
+				"summary": "Gets the corresponding local user from a connect user id",
+				"tags": [],
+				"operationId": "GetLocalUser",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Connect/Invite": {
+			"post": {
+				"summary": "Creates a Connect link for a user",
+				"tags": [],
+				"operationId": "CreateConnectInvite",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Connect/Pending": {
+			"delete": {
+				"summary": "Deletes a Connect link for a user",
+				"tags": [],
+				"operationId": "DeleteAuthorization",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/CoverArt/Ignores": {
+			"delete": {
+				"tags": [],
+				"operationId": "IgnoreRequest",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/CoverArt/Images": {
+			"get": {
+				"tags": [],
+				"operationId": "ImageRequest",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/CoverArt/Mappings": {
+			"delete": {
+				"tags": [],
+				"operationId": "MappingRequest",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/CoverArt/Profiles": {
+			"delete": {
+				"tags": [],
+				"operationId": "ProfileRequest",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/CoverArt/VersionInfo": {
+			"get": {
+				"tags": [],
+				"operationId": "VersionInfo",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Devices": {
+			"delete": {
+				"summary": "Deletes a device",
+				"tags": [],
+				"operationId": "DeleteDevice",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Devices/CameraUploads": {
+			"post": {
+				"summary": "Uploads content",
+				"tags": [],
+				"operationId": "PostCameraUpload",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Devices/Capabilities": {
+			"get": {
+				"summary": "Gets device capabilities",
+				"tags": [],
+				"operationId": "GetDeviceCapabilities",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Devices/Info": {
+			"get": {
+				"summary": "Gets device info",
+				"tags": [],
+				"operationId": "GetDeviceInfo",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Devices/Options": {
+			"post": {
+				"summary": "Updates device options",
+				"tags": [],
+				"operationId": "PostDeviceOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/DisplayPreferences/{DisplayPreferencesId}": {
+			"post": {
+				"summary": "Updates a user's display preferences for an item",
+				"tags": [],
+				"operationId": "UpdateDisplayPreferences",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/DisplayPreferences/{Id}": {
+			"get": {
+				"summary": "Gets a user's display preferences for an item",
+				"tags": [],
+				"operationId": "GetDisplayPreferences",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Dlna/{UuId}/connectionmanager/connectionmanager": {
+			"get": {
+				"summary": "Gets dlna connection manager xml",
+				"tags": [],
+				"operationId": "GetConnnectionManager",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Dlna/{UuId}/connectionmanager/connectionmanager.xml": {
+			"get": {
+				"summary": "Gets dlna connection manager xml",
+				"tags": [],
+				"operationId": "GetConnnectionManager",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Dlna/{UuId}/connectionmanager/control": {
+			"post": {
+				"summary": "Processes a control request",
+				"tags": [],
+				"operationId": "ProcessConnectionManagerControlRequest",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Dlna/{UuId}/connectionmanager/events": {
+			"unsubscribe": {
+				"summary": "Processes an event subscription request",
+				"tags": [],
+				"operationId": "ProcessConnectionManagerEventRequest",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Dlna/{UuId}/contentdirectory/contentdirectory": {
+			"get": {
+				"summary": "Gets dlna content directory xml",
+				"tags": [],
+				"operationId": "GetContentDirectory",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Dlna/{UuId}/contentdirectory/contentdirectory.xml": {
+			"get": {
+				"summary": "Gets dlna content directory xml",
+				"tags": [],
+				"operationId": "GetContentDirectory",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Dlna/{UuId}/contentdirectory/control": {
+			"post": {
+				"summary": "Processes a control request",
+				"tags": [],
+				"operationId": "ProcessContentDirectoryControlRequest",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Dlna/{UuId}/contentdirectory/events": {
+			"unsubscribe": {
+				"summary": "Processes an event subscription request",
+				"tags": [],
+				"operationId": "ProcessContentDirectoryEventRequest",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Dlna/{UuId}/description": {
+			"get": {
+				"summary": "Gets dlna server info",
+				"tags": [],
+				"operationId": "GetDescriptionXml",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Dlna/{UuId}/description.xml": {
+			"get": {
+				"summary": "Gets dlna server info",
+				"tags": [],
+				"operationId": "GetDescriptionXml",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Dlna/{UuId}/icons/{Filename}": {
+			"get": {
+				"summary": "Gets a server icon",
+				"tags": [],
+				"operationId": "GetIcon",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Dlna/{UuId}/mediareceiverregistrar/control": {
+			"post": {
+				"summary": "Processes a control request",
+				"tags": [],
+				"operationId": "ProcessMediaReceiverRegistrarControlRequest",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Dlna/{UuId}/mediareceiverregistrar/events": {
+			"unsubscribe": {
+				"summary": "Processes an event subscription request",
+				"tags": [],
+				"operationId": "ProcessMediaReceiverRegistrarEventRequest",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Dlna/{UuId}/mediareceiverregistrar/mediareceiverregistrar": {
+			"get": {
+				"summary": "Gets dlna mediareceiverregistrar xml",
+				"tags": [],
+				"operationId": "GetMediaReceiverRegistrar",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Dlna/{UuId}/mediareceiverregistrar/mediareceiverregistrar.xml": {
+			"get": {
+				"summary": "Gets dlna mediareceiverregistrar xml",
+				"tags": [],
+				"operationId": "GetMediaReceiverRegistrar",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Dlna/icons/{Filename}": {
+			"get": {
+				"summary": "Gets a server icon",
+				"tags": [],
+				"operationId": "GetIcon",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Dlna/ProfileInfos": {
+			"get": {
+				"summary": "Gets a list of profiles",
+				"tags": [],
+				"operationId": "GetProfileInfos",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Dlna/Profiles": {
+			"post": {
+				"summary": "Creates a profile",
+				"tags": [],
+				"operationId": "CreateProfile",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Dlna/Profiles/{Id}": {
+			"post": {
+				"summary": "Updates a profile",
+				"tags": [],
+				"operationId": "UpdateProfile",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Dlna/Profiles/Default": {
+			"get": {
+				"summary": "Gets the default profile",
+				"tags": [],
+				"operationId": "GetDefaultProfile",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Environment/DefaultDirectoryBrowser": {
+			"get": {
+				"summary": "Gets the parent path of a given path",
+				"tags": [],
+				"operationId": "GetDefaultDirectoryBrowser",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Environment/DirectoryContents": {
+			"get": {
+				"summary": "Gets the contents of a given directory in the file system",
+				"tags": [],
+				"operationId": "GetDirectoryContents",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Environment/Drives": {
+			"get": {
+				"summary": "Gets available drives from the server's file system",
+				"tags": [],
+				"operationId": "GetDrives",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Environment/NetworkDevices": {
+			"get": {
+				"summary": "Gets a list of devices on the network",
+				"tags": [],
+				"operationId": "GetNetworkDevices",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Environment/NetworkShares": {
+			"get": {
+				"summary": "Gets shares from a network device",
+				"tags": [],
+				"operationId": "GetNetworkShares",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Environment/ParentPath": {
+			"get": {
+				"summary": "Gets the parent path of a given path",
+				"tags": [],
+				"operationId": "GetParentPath",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Environment/ValidatePath": {
+			"post": {
+				"summary": "Gets the contents of a given directory in the file system",
+				"tags": [],
+				"operationId": "ValidatePath",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/GameBrowser/GamePlatforms": {
+			"get": {
+				"tags": [],
+				"operationId": "GetConfiguredPlatforms",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/GameBrowser/Games/Dos": {
+			"get": {
+				"tags": [],
+				"operationId": "GetDosGames",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/GameBrowser/Games/Windows": {
+			"get": {
+				"tags": [],
+				"operationId": "GetWindowsGames",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/GameGenres": {
+			"get": {
+				"summary": "Gets all Game genres from a given item, folder, or the entire library",
+				"tags": [],
+				"operationId": "GetGameGenres",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/GameGenres/{Name}": {
+			"get": {
+				"summary": "Gets a Game genre, by name",
+				"tags": [],
+				"operationId": "GetGameGenre",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/GameGenres/{Name}/Images/{Type}": {
+			"head": {
+				"tags": [],
+				"operationId": "GetItemByNameImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/GameGenres/{Name}/Images/{Type}/{Index}": {
+			"head": {
+				"tags": [],
+				"operationId": "GetItemByNameImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Games/{Id}/Similar": {
+			"get": {
+				"summary": "Finds games similar to a given game.",
+				"tags": [],
+				"operationId": "GetSimilarGames",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Games/SystemSummaries": {
+			"get": {
+				"summary": "Finds games similar to a given game.",
+				"tags": [],
+				"operationId": "GetGameSystemSummaries",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Genres": {
+			"get": {
+				"summary": "Gets all genres from a given item, folder, or the entire library",
+				"tags": [],
+				"operationId": "GetGenres",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Genres/{Name}": {
+			"get": {
+				"summary": "Gets a genre, by name",
+				"tags": [],
+				"operationId": "GetGenre",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Genres/{Name}/Images/{Type}": {
+			"head": {
+				"tags": [],
+				"operationId": "GetItemByNameImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Genres/{Name}/Images/{Type}/{Index}": {
+			"head": {
+				"tags": [],
+				"operationId": "GetItemByNameImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Images/General": {
+			"get": {
+				"summary": "Gets all general images by name",
+				"tags": [],
+				"operationId": "GetGeneralImages",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Images/General/{Name}/{Type}": {
+			"get": {
+				"summary": "Gets a general image by name",
+				"tags": [],
+				"operationId": "GetGeneralImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Images/MediaInfo": {
+			"get": {
+				"summary": "Gets all media info image by name",
+				"tags": [],
+				"operationId": "GetMediaInfoImages",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Images/MediaInfo/{Theme}/{Name}": {
+			"get": {
+				"summary": "Gets a media info image by name",
+				"tags": [],
+				"operationId": "GetMediaInfoImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Images/Ratings": {
+			"get": {
+				"summary": "Gets all rating images by name",
+				"tags": [],
+				"operationId": "GetRatingImages",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Images/Ratings/{Theme}/{Name}": {
+			"get": {
+				"summary": "Gets a rating image by name",
+				"tags": [],
+				"operationId": "GetRatingImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Images/Remote": {
+			"get": {
+				"summary": "Gets a remote image",
+				"tags": [],
+				"operationId": "GetRemoteImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items": {
+			"delete": {
+				"summary": "Deletes an item from the library and file system",
+				"tags": [],
+				"operationId": "DeleteItems",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}": {
+			"delete": {
+				"summary": "Deletes an item from the library and file system",
+				"tags": [],
+				"operationId": "DeleteItem",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/Ancestors": {
+			"get": {
+				"summary": "Gets all parents of an item",
+				"tags": [],
+				"operationId": "GetAncestors",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/CriticReviews": {
+			"get": {
+				"summary": "Gets critic reviews for an item",
+				"tags": [],
+				"operationId": "GetCriticReviews",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/Download": {
+			"get": {
+				"summary": "Downloads item media",
+				"tags": [],
+				"operationId": "GetDownload",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/ExternalIdInfos": {
+			"get": {
+				"summary": "Gets external id infos for an item",
+				"tags": [],
+				"operationId": "GetExternalIdInfos",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/File": {
+			"get": {
+				"summary": "Gets the original file of an item",
+				"tags": [],
+				"operationId": "GetFile",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/Images": {
+			"get": {
+				"summary": "Gets information about an item's images",
+				"tags": [],
+				"operationId": "GetItemImageInfos",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/Images/{Type}": {
+			"delete": {
+				"tags": [],
+				"operationId": "DeleteItemImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/Images/{Type}/{Index}": {
+			"delete": {
+				"tags": [],
+				"operationId": "DeleteItemImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/Images/{Type}/{Index}/{Tag}/{Format}/{MaxWidth}/{MaxHeight}/{PercentPlayed}/{UnplayedCount}": {
+			"head": {
+				"tags": [],
+				"operationId": "GetItemImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/Images/{Type}/{Index}/Index": {
+			"post": {
+				"summary": "Updates the index for an item image",
+				"tags": [],
+				"operationId": "UpdateItemImageIndex",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/InstantMix": {
+			"get": {
+				"summary": "Creates an instant playlist based on a given item",
+				"tags": [],
+				"operationId": "GetInstantMixFromItem",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/PlaybackInfo": {
+			"post": {
+				"summary": "Gets live playback media info for an item",
+				"tags": [],
+				"operationId": "GetPostedPlaybackInfo",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/Refresh": {
+			"post": {
+				"summary": "Refreshes metadata for an item",
+				"tags": [],
+				"operationId": "RefreshItem",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/RemoteImages": {
+			"get": {
+				"summary": "Gets available remote images for an item",
+				"tags": [],
+				"operationId": "GetRemoteImages",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/RemoteImages/Download": {
+			"post": {
+				"summary": "Downloads a remote image for an item",
+				"tags": [],
+				"operationId": "DownloadRemoteImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/RemoteImages/Providers": {
+			"get": {
+				"summary": "Gets available remote image providers for an item",
+				"tags": [],
+				"operationId": "GetRemoteImageProviders",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/RemoteSearch/Subtitles/{Language}": {
+			"get": {
+				"tags": [],
+				"operationId": "SearchRemoteSubtitles",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/RemoteSearch/Subtitles/{SubtitleId}": {
+			"post": {
+				"tags": [],
+				"operationId": "DownloadRemoteSubtitles",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/RemoteSearch/Subtitles/Providers": {
+			"get": {
+				"tags": [],
+				"operationId": "GetSubtitleProviders",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/Similar": {
+			"get": {
+				"summary": "Gets similar items",
+				"tags": [],
+				"operationId": "GetSimilarItems",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/ThemeMedia": {
+			"get": {
+				"summary": "Gets theme videos and songs for an item",
+				"tags": [],
+				"operationId": "GetThemeMedia",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/ThemeSongs": {
+			"get": {
+				"summary": "Gets theme songs for an item",
+				"tags": [],
+				"operationId": "GetThemeSongs",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{Id}/ThemeVideos": {
+			"get": {
+				"summary": "Gets theme videos for an item",
+				"tags": [],
+				"operationId": "GetThemeVideos",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{ItemId}": {
+			"post": {
+				"summary": "Updates an item",
+				"tags": [],
+				"operationId": "UpdateItem",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{ItemId}/ContentType": {
+			"post": {
+				"summary": "Updates an item's content type",
+				"tags": [],
+				"operationId": "UpdateItemContentType",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/{ItemId}/MetadataEditor": {
+			"get": {
+				"summary": "Gets metadata editor info for an item",
+				"tags": [],
+				"operationId": "GetMetadataEditorInfo",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/Counts": {
+			"get": {
+				"tags": [],
+				"operationId": "GetItemCounts",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/Filters": {
+			"get": {
+				"summary": "Gets branding configuration",
+				"tags": [],
+				"operationId": "GetQueryFiltersLegacy",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/Filters2": {
+			"get": {
+				"summary": "Gets branding configuration",
+				"tags": [],
+				"operationId": "GetQueryFilters",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/RemoteSearch/Apply/{Id}": {
+			"post": {
+				"summary": "Applies search criteria to an item and refreshes metadata",
+				"tags": [],
+				"operationId": "ApplySearchCriteria",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/RemoteSearch/Book": {
+			"post": {
+				"tags": [],
+				"operationId": "GetBookRemoteSearchResults",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/RemoteSearch/BoxSet": {
+			"post": {
+				"tags": [],
+				"operationId": "GetBoxSetRemoteSearchResults",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/RemoteSearch/Game": {
+			"post": {
+				"tags": [],
+				"operationId": "GetGameRemoteSearchResults",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/RemoteSearch/Image": {
+			"get": {
+				"summary": "Gets a remote image",
+				"tags": [],
+				"operationId": "GetRemoteSearchImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/RemoteSearch/Movie": {
+			"post": {
+				"tags": [],
+				"operationId": "GetMovieRemoteSearchResults",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/RemoteSearch/MusicAlbum": {
+			"post": {
+				"tags": [],
+				"operationId": "GetMusicAlbumRemoteSearchResults",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/RemoteSearch/MusicArtist": {
+			"post": {
+				"tags": [],
+				"operationId": "GetMusicArtistRemoteSearchResults",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/RemoteSearch/Person": {
+			"post": {
+				"tags": [],
+				"operationId": "GetPersonRemoteSearchResults",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/RemoteSearch/Series": {
+			"post": {
+				"tags": [],
+				"operationId": "GetSeriesRemoteSearchResults",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/RemoteSearch/Trailer": {
+			"post": {
+				"tags": [],
+				"operationId": "GetTrailerRemoteSearchResults",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Items/YearIndex": {
+			"get": {
+				"summary": "Gets a year index based on an item query.",
+				"tags": [],
+				"operationId": "GetYearIndex",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Library/Media/Updated": {
+			"post": {
+				"summary": "Reports that new movies have been added by an external source",
+				"tags": [],
+				"operationId": "PostUpdatedMedia",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Library/MediaFolders": {
+			"get": {
+				"summary": "Gets all user media folders.",
+				"tags": [],
+				"operationId": "GetMediaFolders",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Library/Movies/Added": {
+			"post": {
+				"summary": "Reports that new movies have been added by an external source",
+				"tags": [],
+				"operationId": "PostUpdatedMovies",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Library/Movies/Updated": {
+			"post": {
+				"summary": "Reports that new movies have been added by an external source",
+				"tags": [],
+				"operationId": "PostUpdatedMovies",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Library/PhysicalPaths": {
+			"get": {
+				"summary": "Gets a list of physical paths from virtual folders",
+				"tags": [],
+				"operationId": "GetPhyscialPaths",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Library/Refresh": {
+			"post": {
+				"summary": "Starts a library scan",
+				"tags": [],
+				"operationId": "RefreshLibrary",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Library/Series/Added": {
+			"post": {
+				"summary": "Reports that new episodes of a series have been added by an external source",
+				"tags": [],
+				"operationId": "PostUpdatedSeries",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Library/Series/Updated": {
+			"post": {
+				"summary": "Reports that new episodes of a series have been added by an external source",
+				"tags": [],
+				"operationId": "PostUpdatedSeries",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Library/VirtualFolders": {
+			"delete": {
+				"tags": [],
+				"operationId": "RemoveVirtualFolder",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Library/VirtualFolders/LibraryOptions": {
+			"post": {
+				"tags": [],
+				"operationId": "UpdateLibraryOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Library/VirtualFolders/Name": {
+			"post": {
+				"tags": [],
+				"operationId": "RenameVirtualFolder",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Library/VirtualFolders/Paths": {
+			"delete": {
+				"tags": [],
+				"operationId": "RemoveMediaPath",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Library/VirtualFolders/Paths/Update": {
+			"post": {
+				"tags": [],
+				"operationId": "UpdateMediaPath",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveStreams/Close": {
+			"post": {
+				"summary": "Closes a media source",
+				"tags": [],
+				"operationId": "CloseMediaSource",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveStreams/MediaInfo": {
+			"post": {
+				"summary": "Closes a media source",
+				"tags": [],
+				"operationId": "GetLiveStreamMediaInfo",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveStreams/Open": {
+			"post": {
+				"summary": "Opens a media source",
+				"tags": [],
+				"operationId": "OpenMediaSource",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/ChannelMappingOptions": {
+			"options": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"get": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"head": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"post": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"put": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"delete": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"trace": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"connect": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"propfind": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"proppatch": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"mkcol": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"copy": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"move": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"lock": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"unlock": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"version-control": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"report": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"checkout": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"checkin": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"uncheckout": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"mkworkspace": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"update": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"label": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"merge": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"baseline-control": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"mkactivity": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"orderpatch": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"acl": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"patch": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"search": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"bcopy": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"bdelete": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"bmove": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"bpropfind": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"bproppatch": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"notify": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"poll": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"subscribe": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"unsubscribe": {
+				"tags": [],
+				"operationId": "GetChannelMappingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/ChannelMappings": {
+			"options": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"get": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"head": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"post": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"put": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"delete": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"trace": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"connect": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"propfind": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"proppatch": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"mkcol": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"copy": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"move": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"lock": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"unlock": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"version-control": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"report": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"checkout": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"checkin": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"uncheckout": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"mkworkspace": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"update": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"label": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"merge": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"baseline-control": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"mkactivity": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"orderpatch": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"acl": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"patch": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"search": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"bcopy": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"bdelete": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"bmove": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"bpropfind": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"bproppatch": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"notify": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"poll": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"subscribe": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"unsubscribe": {
+				"tags": [],
+				"operationId": "SetChannelMapping",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/Channels": {
+			"get": {
+				"summary": "Gets available live tv channels.",
+				"tags": [],
+				"operationId": "GetChannels",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/Channels/{Id}": {
+			"get": {
+				"summary": "Gets a live tv channel",
+				"tags": [],
+				"operationId": "GetChannel",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/Folder": {
+			"get": {
+				"summary": "Gets the users live tv folder, along with configured images",
+				"tags": [],
+				"operationId": "GetLiveTvFolder",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/GuideInfo": {
+			"get": {
+				"summary": "Gets guide info",
+				"tags": [],
+				"operationId": "GetGuideInfo",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/Info": {
+			"get": {
+				"summary": "Gets available live tv services.",
+				"tags": [],
+				"operationId": "GetLiveTvInfo",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/ListingProviders": {
+			"delete": {
+				"summary": "Deletes a listing provider",
+				"tags": [],
+				"operationId": "DeleteListingProvider",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/ListingProviders/Default": {
+			"get": {
+				"tags": [],
+				"operationId": "GetDefaultListingProvider",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/ListingProviders/Lineups": {
+			"get": {
+				"summary": "Gets available lineups",
+				"tags": [],
+				"operationId": "GetLineups",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/ListingProviders/SchedulesDirect/Countries": {
+			"get": {
+				"summary": "Gets available lineups",
+				"tags": [],
+				"operationId": "GetSchedulesDirectCountries",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/LiveRecordings/{Id}/stream": {
+			"get": {
+				"summary": "Gets a live tv channel",
+				"tags": [],
+				"operationId": "GetLiveRecordingFile",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/LiveStreamFiles/{Id}/stream.{Container}": {
+			"get": {
+				"summary": "Gets a live tv channel",
+				"tags": [],
+				"operationId": "GetLiveStreamFile",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/Programs": {
+			"get": {
+				"summary": "Gets available live tv epgs..",
+				"tags": [],
+				"operationId": "GetPrograms",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			},
+			"post": {
+				"summary": "Gets available live tv epgs..",
+				"tags": [],
+				"operationId": "GetPrograms",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/Programs/{Id}": {
+			"get": {
+				"summary": "Gets a live tv program",
+				"tags": [],
+				"operationId": "GetProgram",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/Programs/Recommended": {
+			"get": {
+				"summary": "Gets available live tv epgs..",
+				"tags": [],
+				"operationId": "GetRecommendedPrograms",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/Recordings": {
+			"get": {
+				"summary": "Gets live tv recordings",
+				"tags": [],
+				"operationId": "GetRecordings",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/Recordings/{Id}": {
+			"delete": {
+				"summary": "Deletes a live tv recording",
+				"tags": [],
+				"operationId": "DeleteRecording",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/Recordings/Groups": {
+			"get": {
+				"summary": "Gets live tv recording groups",
+				"tags": [],
+				"operationId": "GetRecordingGroups",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/Recordings/Groups/{Id}": {
+			"get": {
+				"summary": "Gets a recording group",
+				"tags": [],
+				"operationId": "GetRecordingGroup",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/Recordings/Series": {
+			"get": {
+				"summary": "Gets live tv recordings",
+				"tags": [],
+				"operationId": "GetRecordingSeries",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/Registration": {
+			"get": {
+				"tags": [],
+				"operationId": "GetLiveTvRegistrationInfo",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/SeriesTimers": {
+			"post": {
+				"summary": "Creates a live tv series timer",
+				"tags": [],
+				"operationId": "CreateSeriesTimer",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/SeriesTimers/{Id}": {
+			"post": {
+				"summary": "Updates a live tv series timer",
+				"tags": [],
+				"operationId": "UpdateSeriesTimer",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/Timers": {
+			"post": {
+				"summary": "Creates a live tv timer",
+				"tags": [],
+				"operationId": "CreateTimer",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/Timers/{Id}": {
+			"post": {
+				"summary": "Updates a live tv timer",
+				"tags": [],
+				"operationId": "UpdateTimer",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/Timers/Defaults": {
+			"get": {
+				"summary": "Gets default values for a new timer",
+				"tags": [],
+				"operationId": "GetDefaultTimer",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/TunerHosts": {
+			"delete": {
+				"summary": "Deletes a tuner host",
+				"tags": [],
+				"operationId": "DeleteTunerHost",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/TunerHosts/Types": {
+			"get": {
+				"tags": [],
+				"operationId": "GetTunerHostTypes",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/Tuners/{Id}/Reset": {
+			"post": {
+				"summary": "Resets a tv tuner",
+				"tags": [],
+				"operationId": "ResetTuner",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/LiveTv/Tuners/Discvover": {
+			"get": {
+				"tags": [],
+				"operationId": "DiscoverTuners",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Localization/Countries": {
+			"get": {
+				"summary": "Gets known countries",
+				"tags": [],
+				"operationId": "GetCountries",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Localization/Cultures": {
+			"get": {
+				"summary": "Gets known cultures",
+				"tags": [],
+				"operationId": "GetCultures",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Localization/Options": {
+			"get": {
+				"summary": "Gets localization options",
+				"tags": [],
+				"operationId": "GetLocalizationOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Localization/ParentalRatings": {
+			"get": {
+				"summary": "Gets known parental ratings",
+				"tags": [],
+				"operationId": "GetParentalRatings",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Movies/{Id}/Similar": {
+			"get": {
+				"summary": "Finds movies and trailers similar to a given movie.",
+				"tags": [],
+				"operationId": "GetSimilarMovies",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Movies/Recommendations": {
+			"get": {
+				"summary": "Gets movie recommendations",
+				"tags": [],
+				"operationId": "GetMovieRecommendations",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/MusicGenres": {
+			"get": {
+				"summary": "Gets all music genres from a given item, folder, or the entire library",
+				"tags": [],
+				"operationId": "GetMusicGenres",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/MusicGenres/{Name}": {
+			"get": {
+				"summary": "Gets a music genre, by name",
+				"tags": [],
+				"operationId": "GetMusicGenre",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/MusicGenres/{Name}/Images/{Type}": {
+			"head": {
+				"tags": [],
+				"operationId": "GetItemByNameImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/MusicGenres/{Name}/Images/{Type}/{Index}": {
+			"head": {
+				"tags": [],
+				"operationId": "GetItemByNameImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/MusicGenres/{Name}/InstantMix": {
+			"get": {
+				"summary": "Creates an instant playlist based on a music genre",
+				"tags": [],
+				"operationId": "GetInstantMixFromMusicGenre",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/MusicGenres/InstantMix": {
+			"get": {
+				"summary": "Creates an instant playlist based on a music genre",
+				"tags": [],
+				"operationId": "GetInstantMixFromMusicGenreId",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/News/Product": {
+			"get": {
+				"summary": "Gets the latest product news.",
+				"tags": [],
+				"operationId": "GetProductNews",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Notifications/{UserId}": {
+			"get": {
+				"summary": "Gets notifications",
+				"tags": [],
+				"operationId": "GetNotifications",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Notifications/{UserId}/Read": {
+			"post": {
+				"summary": "Marks notifications as read",
+				"tags": [],
+				"operationId": "MarkRead",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Notifications/{UserId}/Summary": {
+			"get": {
+				"summary": "Gets a notification summary for a user",
+				"tags": [],
+				"operationId": "GetNotificationsSummary",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Notifications/{UserId}/Unread": {
+			"post": {
+				"summary": "Marks notifications as unread",
+				"tags": [],
+				"operationId": "MarkUnread",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Notifications/Admin": {
+			"post": {
+				"summary": "Sends a notification to all admin users",
+				"tags": [],
+				"operationId": "AddAdminNotification",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Notifications/Services": {
+			"get": {
+				"summary": "Gets notification types",
+				"tags": [],
+				"operationId": "GetNotificationServices",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Notifications/Types": {
+			"get": {
+				"summary": "Gets notification types",
+				"tags": [],
+				"operationId": "GetNotificationTypes",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Packages": {
+			"get": {
+				"summary": "Gets available packages",
+				"tags": [],
+				"operationId": "GetPackages",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Packages/{Name}": {
+			"get": {
+				"summary": "Gets a package, by name or assembly guid",
+				"tags": [],
+				"operationId": "GetPackage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Packages/Installed/{Name}": {
+			"post": {
+				"summary": "Installs a package",
+				"tags": [],
+				"operationId": "InstallPackage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Packages/Installing/{Id}": {
+			"delete": {
+				"summary": "Cancels a package installation",
+				"tags": [],
+				"operationId": "CancelPackageInstallation",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Packages/Updates": {
+			"get": {
+				"summary": "Gets available package updates for currently installed packages",
+				"tags": [],
+				"operationId": "GetPackageVersionUpdates",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Persons": {
+			"get": {
+				"summary": "Gets all persons from a given item, folder, or the entire library",
+				"tags": [],
+				"operationId": "GetPersons",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Persons/{Name}": {
+			"get": {
+				"summary": "Gets a person, by name",
+				"tags": [],
+				"operationId": "GetPerson",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Persons/{Name}/Images/{Type}": {
+			"head": {
+				"tags": [],
+				"operationId": "GetItemByNameImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Persons/{Name}/Images/{Type}/{Index}": {
+			"head": {
+				"tags": [],
+				"operationId": "GetItemByNameImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Playback/BitrateTest": {
+			"get": {
+				"tags": [],
+				"operationId": "GetBitrateTestBytes",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Playlists": {
+			"post": {
+				"summary": "Creates a new playlist",
+				"tags": [],
+				"operationId": "CreatePlaylist",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Playlists/{Id}/InstantMix": {
+			"get": {
+				"summary": "Creates an instant playlist based on a given playlist",
+				"tags": [],
+				"operationId": "GetInstantMixFromPlaylist",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Playlists/{Id}/Items": {
+			"get": {
+				"summary": "Gets the original items of a playlist",
+				"tags": [],
+				"operationId": "GetPlaylistItems",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Playlists/{Id}/Items/{ItemId}/Move/{NewIndex}": {
+			"post": {
+				"summary": "Moves a playlist item",
+				"tags": [],
+				"operationId": "MoveItem",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Plugins": {
+			"get": {
+				"summary": "Gets a list of currently installed plugins",
+				"tags": [],
+				"operationId": "GetPlugins",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Plugins/{Id}": {
+			"delete": {
+				"summary": "Uninstalls a plugin",
+				"tags": [],
+				"operationId": "UninstallPlugin",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Plugins/{Id}/Configuration": {
+			"post": {
+				"summary": "Updates a plugin's configuration",
+				"tags": [],
+				"operationId": "UpdatePluginConfiguration",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Providers/Subtitles/Subtitles/{Id}": {
+			"get": {
+				"tags": [],
+				"operationId": "GetRemoteSubtitles",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/ScheduledTasks": {
+			"get": {
+				"summary": "Gets scheduled tasks",
+				"tags": [],
+				"operationId": "GetScheduledTasks",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/ScheduledTasks/{Id}": {
+			"get": {
+				"summary": "Gets a scheduled task, by Id",
+				"tags": [],
+				"operationId": "GetScheduledTask",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/ScheduledTasks/{Id}/Triggers": {
+			"post": {
+				"summary": "Updates the triggers for a scheduled task",
+				"tags": [],
+				"operationId": "UpdateScheduledTaskTriggers",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/ScheduledTasks/Running/{Id}": {
+			"delete": {
+				"summary": "Stops a scheduled task",
+				"tags": [],
+				"operationId": "StopScheduledTask",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Search/Hints": {
+			"get": {
+				"summary": "Gets search hints based on a search term",
+				"tags": [],
+				"operationId": "GetSearchHints",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sessions": {
+			"get": {
+				"summary": "Gets a list of sessions",
+				"tags": [],
+				"operationId": "GetSessions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sessions/{Id}/Command": {
+			"post": {
+				"summary": "Issues a system command to a client",
+				"tags": [],
+				"operationId": "SendFullGeneralCommand",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sessions/{Id}/Command/{Command}": {
+			"post": {
+				"summary": "Issues a system command to a client",
+				"tags": [],
+				"operationId": "SendGeneralCommand",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sessions/{Id}/Message": {
+			"post": {
+				"summary": "Issues a command to a client to display a message to the user",
+				"tags": [],
+				"operationId": "SendMessageCommand",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sessions/{Id}/Playing": {
+			"post": {
+				"summary": "Instructs a session to play an item",
+				"tags": [],
+				"operationId": "Play",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sessions/{Id}/Playing/{Command}": {
+			"post": {
+				"summary": "Issues a playstate command to a client",
+				"tags": [],
+				"operationId": "SendPlaystateCommand",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sessions/{Id}/System/{Command}": {
+			"post": {
+				"summary": "Issues a system command to a client",
+				"tags": [],
+				"operationId": "SendSystemCommand",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sessions/{Id}/Users/{UserId}": {
+			"delete": {
+				"summary": "Removes an additional user from a session",
+				"tags": [],
+				"operationId": "RemoveUserFromSession",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sessions/{Id}/Viewing": {
+			"post": {
+				"summary": "Instructs a session to browse to an item or view",
+				"tags": [],
+				"operationId": "DisplayContent",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sessions/Capabilities": {
+			"post": {
+				"summary": "Updates capabilities for a device",
+				"tags": [],
+				"operationId": "PostCapabilities",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sessions/Capabilities/Full": {
+			"post": {
+				"summary": "Updates capabilities for a device",
+				"tags": [],
+				"operationId": "PostFullCapabilities",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sessions/Logout": {
+			"post": {
+				"summary": "Reports that a session has ended",
+				"tags": [],
+				"operationId": "ReportSessionEnded",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sessions/Playing": {
+			"post": {
+				"summary": "Reports playback has started within a session",
+				"tags": [],
+				"operationId": "ReportPlaybackStart",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sessions/Playing/Ping": {
+			"post": {
+				"summary": "Pings a playback session",
+				"tags": [],
+				"operationId": "PingPlaybackSession",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sessions/Playing/Progress": {
+			"post": {
+				"summary": "Reports playback progress within a session",
+				"tags": [],
+				"operationId": "ReportPlaybackProgress",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sessions/Playing/Stopped": {
+			"post": {
+				"summary": "Reports playback has stopped within a session",
+				"tags": [],
+				"operationId": "ReportPlaybackStopped",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Shows/{Id}/Episodes": {
+			"get": {
+				"summary": "Gets episodes for a tv season",
+				"tags": [],
+				"operationId": "GetEpisodes",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Shows/{Id}/Seasons": {
+			"get": {
+				"summary": "Gets seasons for a tv series",
+				"tags": [],
+				"operationId": "GetSeasons",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Shows/{Id}/Similar": {
+			"get": {
+				"summary": "Finds tv shows similar to a given one.",
+				"tags": [],
+				"operationId": "GetSimilarShows",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Shows/NextUp": {
+			"get": {
+				"summary": "Gets a list of next up episodes",
+				"tags": [],
+				"operationId": "GetNextUpEpisodes",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Shows/Upcoming": {
+			"get": {
+				"summary": "Gets a list of upcoming episodes",
+				"tags": [],
+				"operationId": "GetUpcomingEpisodes",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Songs/{Id}/InstantMix": {
+			"get": {
+				"summary": "Creates an instant playlist based on a given song",
+				"tags": [],
+				"operationId": "GetInstantMixFromSong",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Startup/Complete": {
+			"post": {
+				"summary": "Reports that the startup wizard has been completed",
+				"tags": [],
+				"operationId": "ReportStartupWizardComplete",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Startup/Configuration": {
+			"post": {
+				"summary": "Updates initial server configuration",
+				"tags": [],
+				"operationId": "UpdateStartupConfiguration",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Startup/Info": {
+			"get": {
+				"summary": "Gets initial server info",
+				"tags": [],
+				"operationId": "GetStartupInfo",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Startup/RemoteAccess": {
+			"post": {
+				"summary": "Updates initial server configuration",
+				"tags": [],
+				"operationId": "UpdateRemoteAccessConfiguration",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Startup/User": {
+			"post": {
+				"summary": "Updates initial user info",
+				"tags": [],
+				"operationId": "UpdateStartupUser",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Studios": {
+			"get": {
+				"summary": "Gets all studios from a given item, folder, or the entire library",
+				"tags": [],
+				"operationId": "GetStudios",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Studios/{Name}": {
+			"get": {
+				"summary": "Gets a studio, by name",
+				"tags": [],
+				"operationId": "GetStudio",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Studios/{Name}/Images/{Type}": {
+			"head": {
+				"tags": [],
+				"operationId": "GetItemByNameImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Studios/{Name}/Images/{Type}/{Index}": {
+			"head": {
+				"tags": [],
+				"operationId": "GetItemByNameImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/swagger": {
+			"get": {
+				"summary": "Gets the swagger specifications",
+				"tags": [],
+				"operationId": "GetSwaggerSpec",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/swagger.json": {
+			"get": {
+				"summary": "Gets the swagger specifications",
+				"tags": [],
+				"operationId": "GetSwaggerSpec",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sync/{TargetId}/Items": {
+			"delete": {
+				"summary": "Cancels items from a sync target",
+				"tags": [],
+				"operationId": "CancelItems",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sync/Data": {
+			"post": {
+				"summary": "Syncs data between device and server",
+				"tags": [],
+				"operationId": "SyncData",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sync/Items/Cancel": {
+			"post": {
+				"summary": "Cancels items from a sync target",
+				"tags": [],
+				"operationId": "CancelItems",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sync/Items/Ready": {
+			"get": {
+				"summary": "Gets ready to download sync items.",
+				"tags": [],
+				"operationId": "GetReadySyncItems",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sync/JobItems": {
+			"get": {
+				"summary": "Gets sync job items.",
+				"tags": [],
+				"operationId": "GetSyncJobItems",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sync/JobItems/{Id}": {
+			"delete": {
+				"summary": "Cancels a sync job item",
+				"tags": [],
+				"operationId": "CancelSyncJobItem",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sync/JobItems/{Id}/AdditionalFiles": {
+			"get": {
+				"summary": "Gets a sync job item file",
+				"tags": [],
+				"operationId": "GetSyncJobItemAdditionalFile",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sync/JobItems/{Id}/Enable": {
+			"post": {
+				"summary": "Enables a cancelled or queued sync job item",
+				"tags": [],
+				"operationId": "EnableSyncJobItem",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sync/JobItems/{Id}/File": {
+			"get": {
+				"summary": "Gets a sync job item file",
+				"tags": [],
+				"operationId": "GetSyncJobItemFile",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sync/JobItems/{Id}/MarkForRemoval": {
+			"post": {
+				"summary": "Marks a job item for removal",
+				"tags": [],
+				"operationId": "MarkJobItemForRemoval",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sync/JobItems/{Id}/Transferred": {
+			"post": {
+				"summary": "Reports that a sync job item has successfully been transferred.",
+				"tags": [],
+				"operationId": "ReportSyncJobItemTransferred",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sync/JobItems/{Id}/UnmarkForRemoval": {
+			"post": {
+				"summary": "Unmarks a job item for removal",
+				"tags": [],
+				"operationId": "UnmarkJobItemForRemoval",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sync/Jobs": {
+			"post": {
+				"summary": "Gets sync jobs.",
+				"tags": [],
+				"operationId": "CreateSyncJob",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sync/Jobs/{Id}": {
+			"post": {
+				"summary": "Updates a sync job.",
+				"tags": [],
+				"operationId": "UpdateSyncJob",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sync/OfflineActions": {
+			"post": {
+				"summary": "Reports an action that occurred while offline.",
+				"tags": [],
+				"operationId": "ReportOfflineActions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sync/Options": {
+			"get": {
+				"summary": "Gets a list of available sync targets.",
+				"tags": [],
+				"operationId": "GetSyncDialogOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Sync/Targets": {
+			"get": {
+				"summary": "Gets a list of available sync targets.",
+				"tags": [],
+				"operationId": "GetSyncTargets",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/System/ActivityLog/Entries": {
+			"get": {
+				"summary": "Gets activity log entries",
+				"tags": [],
+				"operationId": "GetActivityLogs",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/System/Configuration": {
+			"post": {
+				"summary": "Updates application configuration",
+				"tags": [],
+				"operationId": "UpdateConfiguration",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/System/Configuration/{Key}": {
+			"post": {
+				"summary": "Updates named configuration",
+				"tags": [],
+				"operationId": "UpdateNamedConfiguration",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/System/Configuration/MetadataOptions/Default": {
+			"get": {
+				"summary": "Gets a default MetadataOptions object",
+				"tags": [],
+				"operationId": "GetDefaultMetadataOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/System/Configuration/MetadataPlugins": {
+			"get": {
+				"summary": "Gets all available metadata plugins",
+				"tags": [],
+				"operationId": "GetMetadataPlugins",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/System/Configuration/MetadataPlugins/Autoset": {
+			"post": {
+				"tags": [],
+				"operationId": "AutoSetMetadataOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/System/Endpoint": {
+			"get": {
+				"summary": "Gets information about the request endpoint",
+				"tags": [],
+				"operationId": "GetEndpointInfo",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/System/Info": {
+			"get": {
+				"summary": "Gets information about the server",
+				"tags": [],
+				"operationId": "GetSystemInfo",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/System/Info/Public": {
+			"get": {
+				"summary": "Gets public information about the server",
+				"tags": [],
+				"operationId": "GetPublicSystemInfo",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/System/Logs": {
+			"get": {
+				"summary": "Gets a list of available server log files",
+				"tags": [],
+				"operationId": "GetServerLogs",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/System/Logs/Log": {
+			"get": {
+				"summary": "Gets a log file",
+				"tags": [],
+				"operationId": "GetLogFile",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/System/MediaEncoder/Path": {
+			"post": {
+				"summary": "Updates the path to the media encoder",
+				"tags": [],
+				"operationId": "UpdateMediaEncoderPath",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/System/Ping": {
+			"get": {
+				"tags": [],
+				"operationId": "PingSystem",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/System/Restart": {
+			"post": {
+				"summary": "Restarts the application, if needed",
+				"tags": [],
+				"operationId": "RestartApplication",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/System/Shutdown": {
+			"post": {
+				"summary": "Shuts down the application",
+				"tags": [],
+				"operationId": "ShutdownApplication",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Trailers": {
+			"get": {
+				"summary": "Finds movies and trailers similar to a given trailer.",
+				"tags": [],
+				"operationId": "Getrailers",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Trailers/{Id}/Similar": {
+			"get": {
+				"summary": "Finds movies and trailers similar to a given trailer.",
+				"tags": [],
+				"operationId": "GetSimilarTrailers",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users": {
+			"get": {
+				"summary": "Gets a list of users",
+				"tags": [],
+				"operationId": "GetUsers",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{Id}": {
+			"post": {
+				"summary": "Updates a user",
+				"tags": [],
+				"operationId": "UpdateUser",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{Id}/Authenticate": {
+			"post": {
+				"summary": "Authenticates a user",
+				"tags": [],
+				"operationId": "AuthenticateUser",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{Id}/Configuration": {
+			"post": {
+				"summary": "Updates a user configuration",
+				"tags": [],
+				"operationId": "UpdateUserConfiguration",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{Id}/Connect/Link": {
+			"delete": {
+				"summary": "Removes a Connect link for a user",
+				"tags": [],
+				"operationId": "DeleteConnectLink",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{Id}/EasyPassword": {
+			"post": {
+				"summary": "Updates a user's easy password",
+				"tags": [],
+				"operationId": "UpdateUserEasyPassword",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{Id}/Images/{Type}": {
+			"delete": {
+				"tags": [],
+				"operationId": "DeleteUserImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{Id}/Images/{Type}/{Index}": {
+			"delete": {
+				"tags": [],
+				"operationId": "DeleteUserImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{Id}/Offline": {
+			"get": {
+				"summary": "Gets an offline user record by Id",
+				"tags": [],
+				"operationId": "GetOfflineUser",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{Id}/Password": {
+			"post": {
+				"summary": "Updates a user's password",
+				"tags": [],
+				"operationId": "UpdateUserPassword",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{Id}/Policy": {
+			"post": {
+				"summary": "Updates a user policy",
+				"tags": [],
+				"operationId": "UpdateUserPolicy",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{UserId}/FavoriteItems/{Id}": {
+			"delete": {
+				"summary": "Unmarks an item as a favorite",
+				"tags": [],
+				"operationId": "UnmarkFavoriteItem",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{UserId}/GroupingOptions": {
+			"get": {
+				"tags": [],
+				"operationId": "GetGroupingOptions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{UserId}/Items": {
+			"get": {
+				"summary": "Gets items based on a query.",
+				"tags": [],
+				"operationId": "GetItems",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{UserId}/Items/{Id}": {
+			"get": {
+				"summary": "Gets an item from a user's library",
+				"tags": [],
+				"operationId": "GetItem",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{UserId}/Items/{Id}/Intros": {
+			"get": {
+				"summary": "Gets intros to play before the main media item plays",
+				"tags": [],
+				"operationId": "GetIntros",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{UserId}/Items/{Id}/LocalTrailers": {
+			"get": {
+				"summary": "Gets local trailers for an item",
+				"tags": [],
+				"operationId": "GetLocalTrailers",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{UserId}/Items/{Id}/Rating": {
+			"post": {
+				"summary": "Updates a user's rating for an item",
+				"tags": [],
+				"operationId": "UpdateUserItemRating",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{UserId}/Items/{Id}/SpecialFeatures": {
+			"get": {
+				"summary": "Gets special features for an item",
+				"tags": [],
+				"operationId": "GetSpecialFeatures",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{UserId}/Items/Latest": {
+			"get": {
+				"summary": "Gets latest media",
+				"tags": [],
+				"operationId": "GetLatestMedia",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{UserId}/Items/Resume": {
+			"get": {
+				"summary": "Gets items based on a query.",
+				"tags": [],
+				"operationId": "GetResumeItems",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{UserId}/Items/Root": {
+			"get": {
+				"summary": "Gets the root folder from a user's library",
+				"tags": [],
+				"operationId": "GetRootFolder",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{UserId}/PlayedItems/{Id}": {
+			"delete": {
+				"summary": "Marks an item as unplayed",
+				"tags": [],
+				"operationId": "MarkUnplayedItem",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{UserId}/PlayingItems/{Id}": {
+			"delete": {
+				"summary": "Reports that a user has stopped playing an item",
+				"tags": [],
+				"operationId": "OnPlaybackStopped",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{UserId}/PlayingItems/{Id}/Progress": {
+			"post": {
+				"summary": "Reports a user's playback progress",
+				"tags": [],
+				"operationId": "OnPlaybackProgress",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{UserId}/Suggestions": {
+			"get": {
+				"summary": "Gets items based on a query.",
+				"tags": [],
+				"operationId": "GetSuggestedItems",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/{UserId}/Views": {
+			"get": {
+				"tags": [],
+				"operationId": "GetUserViews",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/AuthenticateByName": {
+			"post": {
+				"summary": "Authenticates a user",
+				"tags": [],
+				"operationId": "AuthenticateUserByName",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/ForgotPassword": {
+			"post": {
+				"summary": "Initiates the forgot password process for a local user",
+				"tags": [],
+				"operationId": "ForgotPassword",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/ForgotPassword/Pin": {
+			"post": {
+				"summary": "Redeems a forgot password pin",
+				"tags": [],
+				"operationId": "ForgotPasswordPin",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/New": {
+			"post": {
+				"summary": "Creates a user",
+				"tags": [],
+				"operationId": "CreateUserByName",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Users/Public": {
+			"get": {
+				"summary": "Gets a list of publicly visible users for display on a login screen.",
+				"tags": [],
+				"operationId": "GetPublicUsers",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/{MediaSourceId}/Subtitles/{Index}/{StartPositionTicks}/Stream.{Format}": {
+			"get": {
+				"summary": "Gets subtitles in a specified format.",
+				"tags": [],
+				"operationId": "GetSubtitle",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/{MediaSourceId}/Subtitles/{Index}/Stream.{Format}": {
+			"get": {
+				"summary": "Gets subtitles in a specified format.",
+				"tags": [],
+				"operationId": "GetSubtitle",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/{MediaSourceId}/Subtitles/{Index}/subtitles.m3u8": {
+			"get": {
+				"summary": "Gets an HLS subtitle playlist.",
+				"tags": [],
+				"operationId": "GetSubtitlePlaylist",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/AdditionalParts": {
+			"get": {
+				"summary": "Gets additional parts for a video.",
+				"tags": [],
+				"operationId": "GetAdditionalParts",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/AlternateSources": {
+			"delete": {
+				"summary": "Removes alternate video sources.",
+				"tags": [],
+				"operationId": "DeleteAlternateSources",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/hls/{PlaylistId}/{SegmentId}.{SegmentContainer}": {
+			"get": {
+				"tags": [],
+				"operationId": "GetHlsVideoSegmentLegacy",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/hls1/{PlaylistId}/{SegmentId}.{SegmentContainer}": {
+			"head": {
+				"tags": [],
+				"operationId": "GetHlsSegment",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/live.m3u8": {
+			"get": {
+				"tags": [],
+				"operationId": "GetLiveHlsStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/main.m3u8": {
+			"get": {
+				"summary": "Gets a video stream using HTTP live streaming.",
+				"tags": [],
+				"operationId": "GetVariantHlsVideoPlaylist",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/master.m3u8": {
+			"head": {
+				"summary": "Gets a video stream using HTTP live streaming.",
+				"tags": [],
+				"operationId": "GetMasterHlsVideoPlaylist",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/stream": {
+			"head": {
+				"tags": [],
+				"operationId": "GetVideoStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/stream.3gp": {
+			"head": {
+				"tags": [],
+				"operationId": "GetVideoStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/stream.asf": {
+			"head": {
+				"tags": [],
+				"operationId": "GetVideoStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/stream.avi": {
+			"head": {
+				"tags": [],
+				"operationId": "GetVideoStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/stream.flv": {
+			"head": {
+				"tags": [],
+				"operationId": "GetVideoStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/stream.iso": {
+			"head": {
+				"tags": [],
+				"operationId": "GetVideoStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/stream.m2ts": {
+			"head": {
+				"tags": [],
+				"operationId": "GetVideoStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/stream.m4v": {
+			"head": {
+				"tags": [],
+				"operationId": "GetVideoStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/stream.mkv": {
+			"head": {
+				"tags": [],
+				"operationId": "GetVideoStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/stream.mov": {
+			"head": {
+				"tags": [],
+				"operationId": "GetVideoStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/stream.mp4": {
+			"head": {
+				"tags": [],
+				"operationId": "GetVideoStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/stream.mpeg": {
+			"head": {
+				"tags": [],
+				"operationId": "GetVideoStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/stream.mpegts": {
+			"get": {
+				"tags": [],
+				"operationId": "GetVideoStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/stream.mpg": {
+			"head": {
+				"tags": [],
+				"operationId": "GetVideoStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/stream.ogv": {
+			"head": {
+				"tags": [],
+				"operationId": "GetVideoStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/stream.ts": {
+			"head": {
+				"tags": [],
+				"operationId": "GetVideoStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/stream.webm": {
+			"head": {
+				"tags": [],
+				"operationId": "GetVideoStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/stream.wmv": {
+			"head": {
+				"tags": [],
+				"operationId": "GetVideoStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/stream.wtv": {
+			"head": {
+				"tags": [],
+				"operationId": "GetVideoStream",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/{Id}/Subtitles/{Index}": {
+			"delete": {
+				"summary": "Deletes an external subtitle file",
+				"tags": [],
+				"operationId": "DeleteSubtitle",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/ActiveEncodings": {
+			"delete": {
+				"tags": [],
+				"operationId": "StopEncodingProcess",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Videos/MergeVersions": {
+			"post": {
+				"summary": "Merges videos into a single record",
+				"tags": [],
+				"operationId": "MergeVersions",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/web/ConfigurationPage": {
+			"get": {
+				"tags": [],
+				"operationId": "GetDashboardConfigurationPage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/web/ConfigurationPages": {
+			"get": {
+				"tags": [],
+				"operationId": "GetDashboardConfigurationPages",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Years": {
+			"get": {
+				"summary": "Gets all years from a given item, folder, or the entire library",
+				"tags": [],
+				"operationId": "GetYears",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Years/{Year}": {
+			"get": {
+				"summary": "Gets a year",
+				"tags": [],
+				"operationId": "GetYear",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Years/{Year}/Images/{Type}": {
+			"head": {
+				"tags": [],
+				"operationId": "GetItemByNameImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		},
+		"/Years/{Year}/Images/{Type}/{Index}": {
+			"head": {
+				"tags": [],
+				"operationId": "GetItemByNameImage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"security": [{
+					"api_key": []
+				}]
+			}
+		}
+	},
+	"definitions": {
+		
+	},
+	"components": {
+		"securitySchemes": {
+			"api_key": {
+				"name": "api_key",
+				"type": "apiKey",
+				"in": "query"
+			}
+		}
+	}
+}

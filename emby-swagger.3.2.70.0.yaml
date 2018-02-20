@@ -1,0 +1,5730 @@
+swagger: '2.0'
+schemes:
+  - http
+info:
+  description: Explore the Emby Server API
+  version: 1.0.0
+  title: Emby Server API
+  termsOfService: 'https://emby.media/terms'
+  contact:
+    name: Emby Developer Community
+    url: 'https://emby.media/community/index.php?/forum/47-developer-api'
+basePath: /emby
+consumes:
+  - application/json
+produces:
+  - application/json
+security:
+  - auth_header: []
+  - access_token: []
+tags: []
+paths:
+  '/Albums/{Id}/InstantMix':
+    get:
+      summary: Creates an instant playlist based on a given album
+      tags: []
+      operationId: GetInstantMixFromAlbum
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Albums/{Id}/Similar':
+    get:
+      summary: Finds albums similar to a given album.
+      tags: []
+      operationId: GetSimilarAlbums
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Artists:
+    get:
+      summary: 'Gets all artists from a given item, folder, or the entire library'
+      tags: []
+      operationId: GetArtists
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Artists/{Id}/Similar':
+    get:
+      summary: Finds albums similar to a given album.
+      tags: []
+      operationId: GetSimilarArtists
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Artists/{Name}':
+    get:
+      summary: 'Gets an artist, by name'
+      tags: []
+      operationId: GetArtist
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Artists/{Name}/Images/{Type}':
+    head:
+      tags: []
+      operationId: GetItemByNameImage
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+        - in: path
+          name: Type
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Artists/{Name}/Images/{Type}/{Index}':
+    head:
+      tags: []
+      operationId: GetArtistByNameImageIndex
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+        - in: path
+          name: Type
+          required: true
+          type: string
+        - in: path
+          name: Index
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Artists/{Name}/InstantMix':
+    get:
+      summary: Creates an instant playlist based on a given artist
+      tags: []
+      operationId: GetInstantMixFromArtist
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Artists/AlbumArtists:
+    get:
+      summary: 'Gets all album artists from a given item, folder, or the entire library'
+      tags: []
+      operationId: GetAlbumArtists
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Artists/InstantMix:
+    get:
+      summary: Creates an instant playlist based on a given artist
+      tags: []
+      operationId: GetInstantMixFromArtistId
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Audio/{Id}/hls1/{PlaylistId}/{SegmentId}.{SegmentContainer}':
+    head:
+      tags: []
+      operationId: GetAudioHlsSegment
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: PlaylistId
+          required: true
+          type: string
+        - in: path
+          name: SegmentId
+          required: true
+          type: string
+        - in: path
+          name: SegmentContainer
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Audio/{Id}/main.m3u8':
+    get:
+      summary: Gets an audio stream using HTTP live streaming.
+      tags: []
+      operationId: GetVariantHlsVideoPlaylist
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Audio/{Id}/master.m3u8':
+    head:
+      summary: Gets an audio stream using HTTP live streaming.
+      tags: []
+      operationId: GetMasterHlsAudioPlaylist
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Audio/{Id}/stream':
+    head:
+      summary: Gets an audio stream
+      tags: []
+      operationId: GetAudioStream
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Audio/{Id}/stream.{Container}':
+    head:
+      summary: Gets an audio stream
+      tags: []
+      operationId: GetAudioStreamWithContainer
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: Container
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Audio/{Id}/universal':
+    head:
+      summary: Gets an audio stream
+      tags: []
+      operationId: GetUniversalAudioStream
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Audio/{Id}/universal.{Container}':
+    head:
+      summary: Gets an audio stream
+      tags: []
+      operationId: GetUniversalAudioStreamWithContainer
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: Container
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Auth/Keys:
+    get:
+      tags: []
+      operationId: GetApiKeys
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Auth/Keys/{Key}':
+    delete:
+      tags: []
+      operationId: RevokeKey
+      parameters:
+        - in: path
+          name: Key
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /AutoBoxSets/Refresh:
+    post:
+      tags: []
+      operationId: RefreshRequest
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Branding/Configuration:
+    get:
+      summary: Gets branding configuration
+      tags: []
+      operationId: GetBrandingOptions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Branding/Css:
+    get:
+      summary: Gets custom css
+      tags: []
+      operationId: GetBrandingCss
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Branding/Css.css:
+    get:
+      summary: Gets custom css
+      tags: []
+      operationId: GetBrandingCssCss
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Channels:
+    get:
+      summary: Gets available channels
+      tags: []
+      operationId: GetChannels
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Channels/{Id}/Features':
+    get:
+      summary: Gets features for a channel
+      tags: []
+      operationId: GetChannelFeatures
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Channels/{Id}/Items':
+    get:
+      summary: Gets channel items
+      tags: []
+      operationId: GetChannelItems
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Channels/Features:
+    get:
+      summary: Gets features for a channel
+      tags: []
+      operationId: GetAllChannelFeatures
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Channels/Folder:
+    get:
+      summary: 'Gets the users channel folder, along with configured images'
+      tags: []
+      operationId: GetChannelFolder
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Channels/Items/Latest:
+    get:
+      summary: Gets channel items
+      tags: []
+      operationId: GetLatestChannelItems
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Collections:
+    post:
+      summary: Creates a new collection
+      tags: []
+      operationId: CreateCollection
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Collections/{Id}/Items':
+    delete:
+      summary: Removes items from a collection
+      tags: []
+      operationId: RemoveFromCollection
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Connect/Exchange:
+    get:
+      summary: Gets the corresponding local user from a connect user id
+      tags: []
+      operationId: GetLocalUser
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Connect/Invite:
+    post:
+      summary: Creates a Connect link for a user
+      tags: []
+      operationId: CreateConnectInvite
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Connect/Pending:
+    delete:
+      summary: Deletes a Connect link for a user
+      tags: []
+      operationId: DeleteAuthorization
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /CoverArt/Ignores:
+    delete:
+      tags: []
+      operationId: IgnoreRequest
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /CoverArt/Images:
+    get:
+      tags: []
+      operationId: ImageRequest
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /CoverArt/Mappings:
+    delete:
+      tags: []
+      operationId: MappingRequest
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /CoverArt/Profiles:
+    delete:
+      tags: []
+      operationId: ProfileRequest
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /CoverArt/VersionInfo:
+    get:
+      tags: []
+      operationId: VersionInfo
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Devices:
+    delete:
+      summary: Deletes a device
+      tags: []
+      operationId: DeleteDevice
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Devices/CameraUploads:
+    post:
+      summary: Uploads content
+      tags: []
+      operationId: PostCameraUpload
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Devices/Capabilities:
+    get:
+      summary: Gets device capabilities
+      tags: []
+      operationId: GetDeviceCapabilities
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Devices/Info:
+    get:
+      summary: Gets device info
+      tags: []
+      operationId: GetDeviceInfo
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Devices/Options:
+    post:
+      summary: Updates device options
+      tags: []
+      operationId: PostDeviceOptions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/DisplayPreferences/{Id}':
+    get:
+      summary: Gets a user's display preferences for an item
+      tags: []
+      operationId: GetDisplayPreferences
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Updates a user's display preferences for an item
+      tags: []
+      operationId: UpdateDisplayPreferences
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Dlna/{UuId}/connectionmanager/connectionmanager':
+    get:
+      summary: Gets dlna connection manager xml
+      tags: []
+      operationId: GetConnnectionManager
+      parameters:
+        - in: path
+          name: UuId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Dlna/{UuId}/connectionmanager/connectionmanager.xml':
+    get:
+      summary: Gets dlna connection manager xml
+      tags: []
+      operationId: GetConnnectionManagerXml
+      parameters:
+        - in: path
+          name: UuId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Dlna/{UuId}/connectionmanager/control':
+    post:
+      summary: Processes a control request
+      tags: []
+      operationId: ProcessConnectionManagerControlRequest
+      parameters:
+        - in: path
+          name: UuId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Dlna/{UuId}/connectionmanager/events':
+    post:
+      summary: Processes an event subscription request
+      tags: []
+      operationId: ProcessConnectionManagerEventRequest
+      parameters:
+        - in: path
+          name: UuId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Dlna/{UuId}/contentdirectory/contentdirectory':
+    get:
+      summary: Gets dlna content directory xml
+      tags: []
+      operationId: GetContentDirectory
+      parameters:
+        - in: path
+          name: UuId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Dlna/{UuId}/contentdirectory/contentdirectory.xml':
+    get:
+      summary: Gets dlna content directory xml
+      tags: []
+      operationId: GetContentDirectoryXml
+      parameters:
+        - in: path
+          name: UuId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Dlna/{UuId}/contentdirectory/control':
+    post:
+      summary: Processes a control request
+      tags: []
+      operationId: ProcessContentDirectoryControlRequest
+      parameters:
+        - in: path
+          name: UuId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Dlna/{UuId}/contentdirectory/events':
+    post:
+      summary: Processes an event subscription request
+      tags: []
+      operationId: ProcessContentDirectoryEventRequest
+      parameters:
+        - in: path
+          name: UuId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Dlna/{UuId}/description':
+    get:
+      summary: Gets dlna server info
+      tags: []
+      operationId: GetDescription
+      parameters:
+        - in: path
+          name: UuId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Dlna/{UuId}/description.xml':
+    get:
+      summary: Gets dlna server info
+      tags: []
+      operationId: GetDescriptionXml
+      parameters:
+        - in: path
+          name: UuId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Dlna/{UuId}/icons/{Filename}':
+    get:
+      summary: Gets a server icon
+      tags: []
+      operationId: GetIcon
+      parameters:
+        - in: path
+          name: UuId
+          required: true
+          type: string
+        - in: path
+          name: Filename
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Dlna/{UuId}/mediareceiverregistrar/control':
+    post:
+      summary: Processes a control request
+      tags: []
+      operationId: ProcessMediaReceiverRegistrarControlRequest
+      parameters:
+        - in: path
+          name: UuId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Dlna/{UuId}/mediareceiverregistrar/events':
+    post:
+      summary: Processes an event subscription request
+      tags: []
+      operationId: ProcessMediaReceiverRegistrarEventRequest
+      parameters:
+        - in: path
+          name: UuId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Dlna/{UuId}/mediareceiverregistrar/mediareceiverregistrar':
+    get:
+      summary: Gets dlna mediareceiverregistrar xml
+      tags: []
+      operationId: GetMediaReceiverRegistrar
+      parameters:
+        - in: path
+          name: UuId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Dlna/{UuId}/mediareceiverregistrar/mediareceiverregistrar.xml':
+    get:
+      summary: Gets dlna mediareceiverregistrar xml
+      tags: []
+      operationId: GetMediaReceiverRegistrarXml
+      parameters:
+        - in: path
+          name: UuId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Dlna/icons/{Filename}':
+    get:
+      summary: Gets a server icon
+      tags: []
+      operationId: GetTopIcon
+      parameters:
+        - in: path
+          name: Filename
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Dlna/ProfileInfos:
+    get:
+      summary: Gets a list of profiles
+      tags: []
+      operationId: GetProfileInfos
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Dlna/Profiles:
+    post:
+      summary: Creates a profile
+      tags: []
+      operationId: CreateProfile
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Dlna/Profiles/{Id}':
+    post:
+      summary: Updates a profile
+      tags: []
+      operationId: UpdateProfile
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Dlna/Profiles/Default:
+    get:
+      summary: Gets the default profile
+      tags: []
+      operationId: GetDefaultProfile
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Environment/DefaultDirectoryBrowser:
+    get:
+      summary: Gets the parent path of a given path
+      tags: []
+      operationId: GetDefaultDirectoryBrowser
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Environment/DirectoryContents:
+    get:
+      summary: Gets the contents of a given directory in the file system
+      tags: []
+      operationId: GetDirectoryContents
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Environment/Drives:
+    get:
+      summary: Gets available drives from the server's file system
+      tags: []
+      operationId: GetDrives
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Environment/NetworkDevices:
+    get:
+      summary: Gets a list of devices on the network
+      tags: []
+      operationId: GetNetworkDevices
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Environment/NetworkShares:
+    get:
+      summary: Gets shares from a network device
+      tags: []
+      operationId: GetNetworkShares
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Environment/ParentPath:
+    get:
+      summary: Gets the parent path of a given path
+      tags: []
+      operationId: GetParentPath
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Environment/ValidatePath:
+    post:
+      summary: Gets the contents of a given directory in the file system
+      tags: []
+      operationId: ValidatePath
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /GameBrowser/GamePlatforms:
+    get:
+      tags: []
+      operationId: GetConfiguredPlatforms
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /GameBrowser/Games/Dos:
+    get:
+      tags: []
+      operationId: GetDosGames
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /GameBrowser/Games/Windows:
+    get:
+      tags: []
+      operationId: GetWindowsGames
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /GameGenres:
+    get:
+      summary: 'Gets all Game genres from a given item, folder, or the entire library'
+      tags: []
+      operationId: GetGameGenres
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/GameGenres/{Name}':
+    get:
+      summary: 'Gets a Game genre, by name'
+      tags: []
+      operationId: GetGameGenre
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/GameGenres/{Name}/Images/{Type}':
+    head:
+      tags: []
+      operationId: GetGameGenresByNameImage
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+        - in: path
+          name: Type
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/GameGenres/{Name}/Images/{Type}/{Index}':
+    head:
+      tags: []
+      operationId: GetItemByNameImageIndex
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+        - in: path
+          name: Type
+          required: true
+          type: string
+        - in: path
+          name: Index
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Games/{Id}/Similar':
+    get:
+      summary: Finds games similar to a given game.
+      tags: []
+      operationId: GetSimilarGames
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Games/SystemSummaries:
+    get:
+      summary: Finds games similar to a given game.
+      tags: []
+      operationId: GetGameSystemSummaries
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Genres:
+    get:
+      summary: 'Gets all genres from a given item, folder, or the entire library'
+      tags: []
+      operationId: GetGenres
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Genres/{Name}':
+    get:
+      summary: 'Gets a genre, by name'
+      tags: []
+      operationId: GetGenre
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Genres/{Name}/Images/{Type}':
+    head:
+      tags: []
+      operationId: GetGenresByNameImage
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+        - in: path
+          name: Type
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Genres/{Name}/Images/{Type}/{Index}':
+    head:
+      tags: []
+      operationId: GetGenresByNameImageIndex
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+        - in: path
+          name: Type
+          required: true
+          type: string
+        - in: path
+          name: Index
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Images/General:
+    get:
+      summary: Gets all general images by name
+      tags: []
+      operationId: GetGeneralImages
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Images/General/{Name}/{Type}':
+    get:
+      summary: Gets a general image by name
+      tags: []
+      operationId: GetGeneralImage
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+        - in: path
+          name: Type
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Images/MediaInfo:
+    get:
+      summary: Gets all media info image by name
+      tags: []
+      operationId: GetMediaInfoImages
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Images/MediaInfo/{Theme}/{Name}':
+    get:
+      summary: Gets a media info image by name
+      tags: []
+      operationId: GetMediaInfoImage
+      parameters:
+        - in: path
+          name: Theme
+          required: true
+          type: string
+        - in: path
+          name: Name
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Images/Ratings:
+    get:
+      summary: Gets all rating images by name
+      tags: []
+      operationId: GetRatingImages
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Images/Ratings/{Theme}/{Name}':
+    get:
+      summary: Gets a rating image by name
+      tags: []
+      operationId: GetRatingImage
+      parameters:
+        - in: path
+          name: Theme
+          required: true
+          type: string
+        - in: path
+          name: Name
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Images/Remote:
+    get:
+      summary: Gets a remote image
+      tags: []
+      operationId: GetRemoteImage
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Items:
+    delete:
+      summary: Deletes an item from the library and file system
+      tags: []
+      operationId: DeleteItems
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}':
+    post:
+      summary: Updates an item
+      tags: [ 'Items' ]
+      operationId: UpdateItem
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: body
+          name: item
+          required: true
+          schema:
+            $ref: '#/definitions/Item'
+      responses:
+        '204':
+          description: OK
+    delete:
+      summary: Deletes an item from the library and file system
+      tags: [ 'Items' ]
+      operationId: DeleteItem
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/Ancestors':
+    get:
+      summary: Gets all parents of an item
+      tags: []
+      operationId: GetAncestors
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/CriticReviews':
+    get:
+      summary: Gets critic reviews for an item
+      tags: []
+      operationId: GetCriticReviews
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/Download':
+    get:
+      summary: Downloads item media
+      tags: []
+      operationId: GetDownload
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/ExternalIdInfos':
+    get:
+      summary: Gets external id infos for an item
+      tags: []
+      operationId: GetExternalIdInfos
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/File':
+    get:
+      summary: Gets the original file of an item
+      tags: []
+      operationId: GetFile
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/Images':
+    get:
+      summary: Gets information about an item's images
+      tags: []
+      operationId: GetItemImageInfos
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/Images/{Type}':
+    delete:
+      tags: []
+      operationId: DeleteItemImage
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: Type
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/Images/{Type}/{Index}':
+    delete:
+      tags: []
+      operationId: DeleteItemImageIndex
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: Type
+          required: true
+          type: string
+        - in: path
+          name: Index
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/Images/{Type}/{Index}/{Tag}/{Format}/{MaxWidth}/{MaxHeight}/{PercentPlayed}/{UnplayedCount}':
+    head:
+      tags: []
+      operationId: GetItemImage
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: Type
+          required: true
+          type: string
+        - in: path
+          name: Index
+          required: true
+          type: string
+        - in: path
+          name: Tag
+          required: true
+          type: string
+        - in: path
+          name: Format
+          required: true
+          type: string
+        - in: path
+          name: MaxWidth
+          required: true
+          type: string
+        - in: path
+          name: MaxHeight
+          required: true
+          type: string
+        - in: path
+          name: PercentPlayed
+          required: true
+          type: string
+        - in: path
+          name: UnplayedCount
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/Images/{Type}/{Index}/Index':
+    post:
+      summary: Updates the index for an item image
+      tags: []
+      operationId: UpdateItemImageIndex
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: Type
+          required: true
+          type: string
+        - in: path
+          name: Index
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/InstantMix':
+    get:
+      summary: Creates an instant playlist based on a given item
+      tags: []
+      operationId: GetInstantMixFromItem
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/PlaybackInfo':
+    post:
+      summary: Gets live playback media info for an item
+      tags: []
+      operationId: GetPostedPlaybackInfo
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/Refresh':
+    post:
+      summary: Refreshes metadata for an item
+      tags: []
+      operationId: RefreshItem
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/RemoteImages':
+    get:
+      summary: Gets available remote images for an item
+      tags: []
+      operationId: GetRemoteImages
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/RemoteImages/Download':
+    post:
+      summary: Downloads a remote image for an item
+      tags: []
+      operationId: DownloadRemoteImage
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/RemoteImages/Providers':
+    get:
+      summary: Gets available remote image providers for an item
+      tags: []
+      operationId: GetRemoteImageProviders
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/RemoteSearch/Subtitles/{LanguageOrId}':
+    get:
+      tags: []
+      operationId: SearchRemoteSubtitles
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: LanguageOrId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      tags: []
+      operationId: DownloadRemoteSubtitles
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: LanguageOrId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/RemoteSearch/Subtitles/Providers':
+    get:
+      tags: []
+      operationId: GetSubtitleProviders
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/Similar':
+    get:
+      summary: Gets similar items
+      tags: []
+      operationId: GetSimilarItems
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/ThemeMedia':
+    get:
+      summary: Gets theme videos and songs for an item
+      tags: []
+      operationId: GetThemeMedia
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/ThemeSongs':
+    get:
+      summary: Gets theme songs for an item
+      tags: []
+      operationId: GetThemeSongs
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/ThemeVideos':
+    get:
+      summary: Gets theme videos for an item
+      tags: []
+      operationId: GetThemeVideos
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/ContentType':
+    post:
+      summary: Updates an item's content type
+      tags: []
+      operationId: UpdateItemContentType
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Items/{Id}/MetadataEditor':
+    get:
+      summary: Gets metadata editor info for an item
+      tags: []
+      operationId: GetMetadataEditorInfo
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Items/Counts:
+    get:
+      tags: []
+      operationId: GetItemCounts
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Items/Filters:
+    get:
+      summary: Gets branding configuration
+      tags: []
+      operationId: GetQueryFiltersLegacy
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Items/Filters2:
+    get:
+      summary: Gets branding configuration
+      tags: []
+      operationId: GetQueryFilters
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Items/RemoteSearch/Apply/{Id}':
+    post:
+      summary: Applies search criteria to an item and refreshes metadata
+      tags: []
+      operationId: ApplySearchCriteria
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Items/RemoteSearch/Book:
+    post:
+      tags: []
+      operationId: GetBookRemoteSearchResults
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Items/RemoteSearch/BoxSet:
+    post:
+      tags: []
+      operationId: GetBoxSetRemoteSearchResults
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Items/RemoteSearch/Game:
+    post:
+      tags: []
+      operationId: GetGameRemoteSearchResults
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Items/RemoteSearch/Image:
+    get:
+      summary: Gets a remote image
+      tags: []
+      operationId: GetRemoteSearchImage
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Items/RemoteSearch/Movie:
+    post:
+      tags: []
+      operationId: GetMovieRemoteSearchResults
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Items/RemoteSearch/MusicAlbum:
+    post:
+      tags: []
+      operationId: GetMusicAlbumRemoteSearchResults
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Items/RemoteSearch/MusicArtist:
+    post:
+      tags: []
+      operationId: GetMusicArtistRemoteSearchResults
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Items/RemoteSearch/Person:
+    post:
+      tags: []
+      operationId: GetPersonRemoteSearchResults
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Items/RemoteSearch/Series:
+    post:
+      tags: []
+      operationId: GetSeriesRemoteSearchResults
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Items/RemoteSearch/Trailer:
+    post:
+      tags: []
+      operationId: GetTrailerRemoteSearchResults
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Items/YearIndex:
+    get:
+      summary: Gets a year index based on an item query.
+      tags: []
+      operationId: GetYearIndex
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Library/MediaFolders:
+    get:
+      summary: Gets all user media folders.
+      tags: []
+      operationId: GetMediaFolders
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Library/Movies/Added:
+    post:
+      summary: Reports that new movies have been added by an external source
+      tags: []
+      operationId: PostAddedMovies
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Library/Movies/Updated:
+    post:
+      summary: Reports that new movies have been added by an external source
+      tags: []
+      operationId: PostUpdatedMovies
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Library/PhysicalPaths:
+    get:
+      summary: Gets a list of physical paths from virtual folders
+      tags: []
+      operationId: GetPhyscialPaths
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Library/Refresh:
+    post:
+      summary: Starts a library scan
+      tags: []
+      operationId: RefreshLibrary
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Library/Series/Added:
+    post:
+      summary: >-
+        Reports that new episodes of a series have been added by an external
+        source
+      tags: []
+      operationId: PostAddedSeries
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Library/Series/Updated:
+    post:
+      summary: >-
+        Reports that new episodes of a series have been added by an external
+        source
+      tags: []
+      operationId: PostUpdatedSeries
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Library/VirtualFolders:
+    delete:
+      tags: []
+      operationId: RemoveVirtualFolder
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Library/VirtualFolders/LibraryOptions:
+    post:
+      tags: []
+      operationId: UpdateLibraryOptions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Library/VirtualFolders/Name:
+    post:
+      tags: []
+      operationId: RenameVirtualFolder
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Library/VirtualFolders/Paths:
+    delete:
+      tags: []
+      operationId: RemoveMediaPath
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Library/VirtualFolders/Paths/Update:
+    post:
+      tags: []
+      operationId: UpdateMediaPath
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /LiveStreams/Close:
+    post:
+      summary: Closes a media source
+      tags: []
+      operationId: CloseMediaSource
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /LiveStreams/Open:
+    post:
+      summary: Opens a media source
+      tags: []
+      operationId: OpenMediaSource
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /LiveTv/ChannelMappingOptions:
+    options:
+      tags: []
+      operationId: OptionsChannelMappingOptions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+    get:
+      tags: []
+      operationId: GetChannelMappingOptions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+    head:
+      tags: []
+      operationId: HeadChannelMappingOptions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+    post:
+      tags: []
+      operationId: PostChannelMappingOptions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+    put:
+      tags: []
+      operationId: PutChannelMappingOptions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags: []
+      operationId: DeleteChannelMappingOptions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+    patch:
+      tags: []
+      operationId: PatchChannelMappingOptions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /LiveTv/ChannelMappings:
+    options:
+      tags: []
+      operationId: OptionsChannelMapping
+      parameters: []
+      responses:
+        '200':
+          description: OK
+    get:
+      tags: []
+      operationId: GetChannelMapping
+      parameters: []
+      responses:
+        '200':
+          description: OK
+    head:
+      tags: []
+      operationId: SetChannelMapping
+      parameters: []
+      responses:
+        '200':
+          description: OK
+    post:
+      tags: []
+      operationId: PostChannelMapping
+      parameters: []
+      responses:
+        '200':
+          description: OK
+    put:
+      tags: []
+      operationId: PutChannelMapping
+      parameters: []
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags: []
+      operationId: DeleteChannelMapping
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /LiveTv/Channels:
+    get:
+      summary: Gets available live tv channels.
+      tags: []
+      operationId: GetLiveTvChannels
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/LiveTv/Channels/{Id}':
+    get:
+      summary: Gets a live tv channel
+      tags: []
+      operationId: GetChannel
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /LiveTv/Folder:
+    get:
+      summary: 'Gets the users live tv folder, along with configured images'
+      tags: []
+      operationId: GetLiveTvFolder
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /LiveTv/GuideInfo:
+    get:
+      summary: Gets guide info
+      tags: []
+      operationId: GetGuideInfo
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /LiveTv/Info:
+    get:
+      summary: Gets available live tv services.
+      tags: []
+      operationId: GetLiveTvInfo
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /LiveTv/ListingProviders:
+    delete:
+      summary: Deletes a listing provider
+      tags: []
+      operationId: DeleteListingProvider
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /LiveTv/ListingProviders/Default:
+    get:
+      tags: []
+      operationId: GetDefaultListingProvider
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /LiveTv/ListingProviders/Lineups:
+    get:
+      summary: Gets available lineups
+      tags: []
+      operationId: GetLineups
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /LiveTv/ListingProviders/SchedulesDirect/Countries:
+    get:
+      summary: Gets available lineups
+      tags: []
+      operationId: GetSchedulesDirectCountries
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/LiveTv/LiveRecordings/{Id}/stream':
+    get:
+      summary: Gets a live tv channel
+      tags: []
+      operationId: GetLiveRecordingFile
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/LiveTv/LiveStreamFiles/{Id}/stream.{Container}':
+    get:
+      summary: Gets a live tv channel
+      tags: []
+      operationId: GetLiveStreamFile
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: Container
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /LiveTv/Programs:
+    get:
+      summary: Gets available live tv epgs..
+      tags: []
+      operationId: GetPrograms
+      parameters: []
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Gets available live tv epgs..
+      tags: []
+      operationId: PostPrograms
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/LiveTv/Programs/{Id}':
+    get:
+      summary: Gets a live tv program
+      tags: []
+      operationId: GetProgram
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /LiveTv/Programs/Recommended:
+    get:
+      summary: Gets available live tv epgs..
+      tags: []
+      operationId: GetRecommendedPrograms
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /LiveTv/Recordings:
+    get:
+      summary: Gets live tv recordings
+      tags: []
+      operationId: GetRecordings
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/LiveTv/Recordings/{Id}':
+    delete:
+      summary: Deletes a live tv recording
+      tags: []
+      operationId: DeleteRecording
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /LiveTv/Recordings/Groups:
+    get:
+      summary: Gets live tv recording groups
+      tags: []
+      operationId: GetRecordingGroups
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/LiveTv/Recordings/Groups/{Id}':
+    get:
+      summary: Gets a recording group
+      tags: []
+      operationId: GetRecordingGroup
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /LiveTv/Recordings/Series:
+    get:
+      summary: Gets live tv recordings
+      tags: []
+      operationId: GetRecordingSeries
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /LiveTv/Registration:
+    get:
+      tags: []
+      operationId: GetLiveTvRegistrationInfo
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /LiveTv/SeriesTimers:
+    post:
+      summary: Creates a live tv series timer
+      tags: []
+      operationId: CreateSeriesTimer
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/LiveTv/SeriesTimers/{Id}':
+    post:
+      summary: Updates a live tv series timer
+      tags: []
+      operationId: UpdateSeriesTimer
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /LiveTv/Timers:
+    post:
+      summary: Creates a live tv timer
+      tags: []
+      operationId: CreateTimer
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/LiveTv/Timers/{Id}':
+    post:
+      summary: Updates a live tv timer
+      tags: []
+      operationId: UpdateTimer
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /LiveTv/Timers/Defaults:
+    get:
+      summary: Gets default values for a new timer
+      tags: []
+      operationId: GetDefaultTimer
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /LiveTv/TunerHosts:
+    delete:
+      summary: Deletes a tuner host
+      tags: []
+      operationId: DeleteTunerHost
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /LiveTv/TunerHosts/Types:
+    get:
+      tags: []
+      operationId: GetTunerHostTypes
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/LiveTv/Tuners/{Id}/Reset':
+    post:
+      summary: Resets a tv tuner
+      tags: []
+      operationId: ResetTuner
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /LiveTv/Tuners/Discvover:
+    get:
+      tags: []
+      operationId: DiscoverTuners
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Localization/Countries:
+    get:
+      summary: Gets known countries
+      tags: []
+      operationId: GetCountries
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Localization/Cultures:
+    get:
+      summary: Gets known cultures
+      tags: []
+      operationId: GetCultures
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Localization/Options:
+    get:
+      summary: Gets localization options
+      tags: []
+      operationId: GetLocalizationOptions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Localization/ParentalRatings:
+    get:
+      summary: Gets known parental ratings
+      tags: []
+      operationId: GetParentalRatings
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Movies/{Id}/Similar':
+    get:
+      summary: Finds movies and trailers similar to a given movie.
+      tags: []
+      operationId: GetSimilarMovies
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Movies/Recommendations:
+    get:
+      summary: Gets movie recommendations
+      tags: []
+      operationId: GetMovieRecommendations
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /MusicGenres:
+    get:
+      summary: 'Gets all music genres from a given item, folder, or the entire library'
+      tags: []
+      operationId: GetMusicGenres
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/MusicGenres/{Name}':
+    get:
+      summary: 'Gets a music genre, by name'
+      tags: []
+      operationId: GetMusicGenre
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/MusicGenres/{Name}/Images/{Type}':
+    head:
+      tags: []
+      operationId: GetMusicGenresByNameImage
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+        - in: path
+          name: Type
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/MusicGenres/{Name}/Images/{Type}/{Index}':
+    head:
+      tags: []
+      operationId: GetMusicGenresByNameImageIndex
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+        - in: path
+          name: Type
+          required: true
+          type: string
+        - in: path
+          name: Index
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/MusicGenres/{Name}/InstantMix':
+    get:
+      summary: Creates an instant playlist based on a music genre
+      tags: []
+      operationId: GetInstantMixFromMusicGenre
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /MusicGenres/InstantMix:
+    get:
+      summary: Creates an instant playlist based on a music genre
+      tags: []
+      operationId: GetInstantMixFromMusicGenreId
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /News/Product:
+    get:
+      summary: Gets the latest product news.
+      tags: []
+      operationId: GetProductNews
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Notifications/{UserId}':
+    get:
+      summary: Gets notifications
+      tags: []
+      operationId: GetNotifications
+      parameters:
+        - in: path
+          name: UserId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Notifications/{UserId}/Read':
+    post:
+      summary: Marks notifications as read
+      tags: []
+      operationId: MarkRead
+      parameters:
+        - in: path
+          name: UserId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Notifications/{UserId}/Summary':
+    get:
+      summary: Gets a notification summary for a user
+      tags: []
+      operationId: GetNotificationsSummary
+      parameters:
+        - in: path
+          name: UserId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Notifications/{UserId}/Unread':
+    post:
+      summary: Marks notifications as unread
+      tags: []
+      operationId: MarkUnread
+      parameters:
+        - in: path
+          name: UserId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Notifications/Admin:
+    post:
+      summary: Sends a notification to all admin users
+      tags: []
+      operationId: AddAdminNotification
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Notifications/Services:
+    get:
+      summary: Gets notification types
+      tags: []
+      operationId: GetNotificationServices
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Notifications/Types:
+    get:
+      summary: Gets notification types
+      tags: []
+      operationId: GetNotificationTypes
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Packages:
+    get:
+      summary: Gets available packages
+      tags: []
+      operationId: GetPackages
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Packages/{Name}':
+    get:
+      summary: 'Gets a package, by name or assembly guid'
+      tags: []
+      operationId: GetPackage
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Packages/Installed/{Name}':
+    post:
+      summary: Installs a package
+      tags: []
+      operationId: InstallPackage
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Packages/Installing/{Id}':
+    delete:
+      summary: Cancels a package installation
+      tags: []
+      operationId: CancelPackageInstallation
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Packages/Updates:
+    get:
+      summary: Gets available package updates for currently installed packages
+      tags: []
+      operationId: GetPackageVersionUpdates
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Persons:
+    get:
+      summary: 'Gets all persons from a given item, folder, or the entire library'
+      tags: []
+      operationId: GetPersons
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Persons/{Name}':
+    get:
+      summary: 'Gets a person, by name'
+      tags: []
+      operationId: GetPerson
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Persons/{Name}/Images/{Type}':
+    head:
+      tags: []
+      operationId: GetPersonsByNameImage
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+        - in: path
+          name: Type
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Persons/{Name}/Images/{Type}/{Index}':
+    head:
+      tags: []
+      operationId: GetPersonsByNameImageIndex
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+        - in: path
+          name: Type
+          required: true
+          type: string
+        - in: path
+          name: Index
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Playback/BitrateTest:
+    get:
+      tags: []
+      operationId: GetBitrateTestBytes
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Playlists:
+    post:
+      summary: Creates a new playlist
+      tags: [ 'Playlists' ]
+      operationId: CreatePlaylist
+      parameters:
+        - in: query
+          name: UserId
+          type: string
+          required: true
+        - in: query
+          name: Name
+          type: string
+          required: true
+        - in: query
+          name: MediaType
+          type: string
+        - in: query
+          name: Ids
+          type: array
+          collectionFormat: csv
+          items:
+            type: string
+        - in: body
+          name: empty
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/IdOnly'
+  '/Playlists/{Id}/InstantMix':
+    get:
+      summary: Creates an instant playlist based on a given playlist
+      tags: []
+      operationId: GetInstantMixFromPlaylist
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Playlists/{Id}/Items':
+    get:
+      summary: Gets the original items of a playlist
+      tags: [ 'Playlists' ]
+      operationId: GetPlaylistItems
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: query
+          name: Limit
+          type: integer
+        - in: query
+          name: StartIndex
+          type: integer
+        - in: query
+          name: Fields
+          type: array
+          items:
+            $ref: '#/definitions/FieldTypes'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/PlaylistItemsResult'
+    post:
+      summary: Adds items to a playlist
+      tags: [ 'Playlists' ]
+      operationId: AddPlaylistItems
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: query
+          name: Ids
+          required: true
+          type: array
+          collectionFormat: csv
+          items:
+            type: string
+        - in: body
+          name: empty
+          required: true
+          schema:
+            type: string
+    delete:
+      summary: Removes items from a playlist
+      tags: [ 'Playlists' ]
+      operationId: RemovePlaylistItems
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: query
+          name: EntryIds
+          required: true
+          type: array
+          collectionFormat: csv
+          items:
+            type: string
+  '/Playlists/{Id}/Items/{ItemId}/Move/{NewIndex}':
+    post:
+      summary: Moves a playlist item
+      tags: []
+      operationId: MoveItem
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: ItemId
+          required: true
+          type: string
+        - in: path
+          name: NewIndex
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Plugins:
+    get:
+      summary: Gets a list of currently installed plugins
+      tags: []
+      operationId: GetPlugins
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Plugins/{Id}':
+    delete:
+      summary: Uninstalls a plugin
+      tags: []
+      operationId: UninstallPlugin
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Plugins/{Id}/Configuration':
+    post:
+      summary: Updates a plugin's configuration
+      tags: []
+      operationId: UpdatePluginConfiguration
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Providers/Subtitles/Subtitles/{Id}':
+    get:
+      tags: []
+      operationId: GetRemoteSubtitles
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /ScheduledTasks:
+    get:
+      summary: Gets scheduled tasks
+      tags: []
+      operationId: GetScheduledTasks
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/ScheduledTasks/{Id}':
+    get:
+      summary: 'Gets a scheduled task, by Id'
+      tags: []
+      operationId: GetScheduledTask
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/ScheduledTasks/{Id}/Triggers':
+    post:
+      summary: Updates the triggers for a scheduled task
+      tags: []
+      operationId: UpdateScheduledTaskTriggers
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/ScheduledTasks/Running/{Id}':
+    delete:
+      summary: Stops a scheduled task
+      tags: []
+      operationId: StopScheduledTask
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Search/Hints:
+    get:
+      summary: Gets search hints based on a search term
+      tags: []
+      operationId: GetSearchHints
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Sessions:
+    get:
+      summary: Gets a list of sessions
+      tags: []
+      operationId: GetSessions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Sessions/{Id}/Command':
+    post:
+      summary: Issues a system command to a client
+      tags: []
+      operationId: SendFullGeneralCommand
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Sessions/{Id}/Command/{Command}':
+    post:
+      summary: Issues a system command to a client
+      tags: []
+      operationId: SendGeneralCommand
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: Command
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Sessions/{Id}/Message':
+    post:
+      summary: Issues a command to a client to display a message to the user
+      tags: []
+      operationId: SendMessageCommand
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Sessions/{Id}/Playing':
+    post:
+      summary: Instructs a session to play an item
+      tags: [ 'Sessions' ]
+      operationId: SendPlaystateCommand
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: formData
+          name: ItemIds
+          type: array
+          collectionFormat: csv
+          items:
+            type: string
+          required: true
+        - in: formData
+          name: StartPositionTicks
+          type: integer
+          format: int64
+        - in: formData
+          name: AudioStreamIndex
+          type: integer
+        - in: formData
+          name: SubtitleStreamIndex
+          type: integer
+        - in: formData
+          name: StartIndex
+          type: integer
+        - in: formData
+          name: MediaSourceId
+          type: string
+        - in: formData
+          name: PlayCommand
+          type: string
+          enum: [ 'PlayNow', 'PlayNext', 'PlayLast', 'PlayInstantMix', 'PlayShuffle' ]
+          required: true
+        - in: formData
+          name: ControllingUserId
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Sessions/{Id}/System/{Command}':
+    post:
+      summary: Issues a system command to a client
+      tags: []
+      operationId: SendSystemCommand
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: Command
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Sessions/{Id}/Users/{UserId}':
+    delete:
+      summary: Removes an additional user from a session
+      tags: []
+      operationId: RemoveUserFromSession
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: UserId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Sessions/{Id}/Viewing':
+    post:
+      summary: Instructs a session to browse to an item or view
+      tags: []
+      operationId: DisplayContent
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Sessions/Capabilities:
+    post:
+      summary: Updates capabilities for a device
+      tags: []
+      operationId: PostCapabilities
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Sessions/Capabilities/Full:
+    post:
+      summary: Updates capabilities for a device
+      tags: []
+      operationId: PostFullCapabilities
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Sessions/Logout:
+    post:
+      summary: Reports that a session has ended
+      tags: []
+      operationId: ReportSessionEnded
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Sessions/Playing:
+    post:
+      summary: Reports playback has started within a session
+      tags: []
+      operationId: ReportPlaybackStart
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Sessions/Playing/Ping:
+    post:
+      summary: Pings a playback session
+      tags: []
+      operationId: PingPlaybackSession
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Sessions/Playing/Progress:
+    post:
+      summary: Reports playback progress within a session
+      tags: []
+      operationId: ReportPlaybackProgress
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Sessions/Playing/Stopped:
+    post:
+      summary: Reports playback has stopped within a session
+      tags: []
+      operationId: ReportPlaybackStopped
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Shows/{Id}/Episodes':
+    get:
+      summary: Gets episodes for a tv season
+      tags: []
+      operationId: GetEpisodes
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Shows/{Id}/Seasons':
+    get:
+      summary: Gets seasons for a tv series
+      tags: []
+      operationId: GetSeasons
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Shows/{Id}/Similar':
+    get:
+      summary: Finds tv shows similar to a given one.
+      tags: []
+      operationId: GetSimilarShows
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Shows/NextUp:
+    get:
+      summary: Gets a list of next up episodes
+      tags: []
+      operationId: GetNextUpEpisodes
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Shows/Upcoming:
+    get:
+      summary: Gets a list of upcoming episodes
+      tags: []
+      operationId: GetUpcomingEpisodes
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Social/Shares:
+    post:
+      summary: Creates a share
+      tags: []
+      operationId: CreateShare
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Social/Shares/{Id}':
+    delete:
+      summary: Deletes a share
+      tags: []
+      operationId: DeleteShare
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Social/Shares/Public/{Id}':
+    get:
+      summary: Gets a share
+      tags: []
+      operationId: GetPublicSocialShareInfo
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Social/Shares/Public/{Id}/Image':
+    get:
+      summary: Gets a share
+      tags: []
+      operationId: GetShareImage
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Social/Shares/Public/{Id}/Item':
+    get:
+      summary: Gets a share
+      tags: []
+      operationId: GetSharedLibraryItem
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Songs/{Id}/InstantMix':
+    get:
+      summary: Creates an instant playlist based on a given song
+      tags: []
+      operationId: GetInstantMixFromSong
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Startup/Complete:
+    post:
+      summary: Reports that the startup wizard has been completed
+      tags: []
+      operationId: ReportStartupWizardComplete
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Startup/Configuration:
+    post:
+      summary: Updates initial server configuration
+      tags: []
+      operationId: UpdateStartupConfiguration
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Startup/Info:
+    get:
+      summary: Gets initial server info
+      tags: []
+      operationId: GetStartupInfo
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Startup/User:
+    post:
+      summary: Updates initial user info
+      tags: []
+      operationId: UpdateStartupUser
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Studios:
+    get:
+      summary: 'Gets all studios from a given item, folder, or the entire library'
+      tags: []
+      operationId: GetStudios
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Studios/{Name}':
+    get:
+      summary: 'Gets a studio, by name'
+      tags: []
+      operationId: GetStudio
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Studios/{Name}/Images/{Type}':
+    head:
+      tags: []
+      operationId: GetStudiosByNameImage
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+        - in: path
+          name: Type
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Studios/{Name}/Images/{Type}/{Index}':
+    head:
+      tags: []
+      operationId: GetStudiosByNameImageIndex
+      parameters:
+        - in: path
+          name: Name
+          required: true
+          type: string
+        - in: path
+          name: Type
+          required: true
+          type: string
+        - in: path
+          name: Index
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /swagger:
+    get:
+      summary: Gets the swagger specifications
+      tags: []
+      operationId: GetSwaggerSpec
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /swagger.json:
+    get:
+      summary: Gets the swagger specifications
+      tags: []
+      operationId: GetSwaggerSpecJson
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Sync/{TargetId}/Items':
+    delete:
+      summary: Cancels items from a sync target
+      tags: []
+      operationId: CancelItems
+      parameters:
+        - in: path
+          name: TargetId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Sync/Data:
+    post:
+      summary: Syncs data between device and server
+      tags: []
+      operationId: SyncData
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Sync/Items/Cancel:
+    post:
+      summary: Cancels items from a sync target
+      tags: []
+      operationId: CancelSyncItems
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Sync/Items/Ready:
+    get:
+      summary: Gets ready to download sync items.
+      tags: []
+      operationId: GetReadySyncItems
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Sync/JobItems:
+    get:
+      summary: Gets sync job items.
+      tags: []
+      operationId: GetSyncJobItems
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Sync/JobItems/{Id}':
+    delete:
+      summary: Cancels a sync job item
+      tags: []
+      operationId: CancelSyncJobItem
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Sync/JobItems/{Id}/AdditionalFiles':
+    get:
+      summary: Gets a sync job item file
+      tags: []
+      operationId: GetSyncJobItemAdditionalFile
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Sync/JobItems/{Id}/Enable':
+    post:
+      summary: Enables a cancelled or queued sync job item
+      tags: []
+      operationId: EnableSyncJobItem
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Sync/JobItems/{Id}/File':
+    get:
+      summary: Gets a sync job item file
+      tags: []
+      operationId: GetSyncJobItemFile
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Sync/JobItems/{Id}/MarkForRemoval':
+    post:
+      summary: Marks a job item for removal
+      tags: []
+      operationId: MarkJobItemForRemoval
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Sync/JobItems/{Id}/Transferred':
+    post:
+      summary: Reports that a sync job item has successfully been transferred.
+      tags: []
+      operationId: ReportSyncJobItemTransferred
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Sync/JobItems/{Id}/UnmarkForRemoval':
+    post:
+      summary: Unmarks a job item for removal
+      tags: []
+      operationId: UnmarkJobItemForRemoval
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Sync/Jobs:
+    post:
+      summary: Gets sync jobs.
+      tags: []
+      operationId: CreateSyncJob
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Sync/Jobs/{Id}':
+    post:
+      summary: Updates a sync job.
+      tags: []
+      operationId: UpdateSyncJob
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Sync/OfflineActions:
+    post:
+      summary: Reports an action that occurred while offline.
+      tags: []
+      operationId: ReportOfflineActions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Sync/Options:
+    get:
+      summary: Gets a list of available sync targets.
+      tags: []
+      operationId: GetSyncDialogOptions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Sync/Targets:
+    get:
+      summary: Gets a list of available sync targets.
+      tags: []
+      operationId: GetSyncTargets
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /System/ActivityLog/Entries:
+    get:
+      summary: Gets activity log entries
+      tags: []
+      operationId: GetActivityLogs
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /System/Configuration:
+    post:
+      summary: Updates application configuration
+      tags: []
+      operationId: UpdateConfiguration
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/System/Configuration/{Key}':
+    post:
+      summary: Updates named configuration
+      tags: []
+      operationId: UpdateNamedConfiguration
+      parameters:
+        - in: path
+          name: Key
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /System/Configuration/MetadataOptions/Default:
+    get:
+      summary: Gets a default MetadataOptions object
+      tags: []
+      operationId: GetDefaultMetadataOptions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /System/Configuration/MetadataPlugins:
+    get:
+      summary: Gets all available metadata plugins
+      tags: []
+      operationId: GetMetadataPlugins
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /System/Configuration/MetadataPlugins/Autoset:
+    post:
+      tags: []
+      operationId: AutoSetMetadataOptions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /System/Endpoint:
+    get:
+      summary: Gets information about the request endpoint
+      tags: []
+      operationId: GetEndpointInfo
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /System/Info:
+    get:
+      summary: Gets information about the server
+      tags: [ 'System' ]
+      operationId: GetSystemInfo
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SystemInfo'
+      security:
+        - auth_header: []
+        - access_token: []
+  /System/Info/Public:
+    get:
+      summary: Gets public information about the server
+      tags: [ 'System' ]
+      operationId: GetPublicSystemInfo
+      parameters: []
+      responses:
+        '200':
+          description:
+          examples:
+            application/json:
+              LocalAddress: "http://127.0.0.1:8096"
+              WanAddress: "http://emby:8096"
+              ServerName: "emby"
+              Version: "3.2.60.0"
+              OperatingSystem: "Linux"
+              Id: "deadbeaf-11111111111111111111111"
+          schema:
+            $ref: '#/definitions/ServerInfo'
+      security: []
+  /System/Logs:
+    get:
+      summary: Gets a list of available server log files
+      tags: []
+      operationId: GetServerLogs
+      parameters: []
+      responses:
+        '200':
+          description: OK
+      security:
+        - auth_header: []
+  /System/Logs/Log:
+    get:
+      summary: Gets a log file
+      tags: []
+      operationId: GetLogFile
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /System/MediaEncoder/Path:
+    post:
+      summary: Updates the path to the media encoder
+      tags: []
+      operationId: UpdateMediaEncoderPath
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /System/Ping:
+    post:
+      tags: []
+      operationId: PingSystem
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /System/Restart:
+    post:
+      summary: 'Restarts the application, if needed'
+      tags: []
+      operationId: RestartApplication
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /System/Shutdown:
+    post:
+      summary: Shuts down the application
+      tags: []
+      operationId: ShutdownApplication
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Trailers:
+    get:
+      summary: Finds movies and trailers similar to a given trailer.
+      tags: []
+      operationId: Getrailers
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Trailers/{Id}/Similar':
+    get:
+      summary: Finds movies and trailers similar to a given trailer.
+      tags: []
+      operationId: GetSimilarTrailers
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Users:
+    get:
+      summary: Gets a list of users
+      tags: []
+      operationId: GetUsers
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Users/{Id}':
+    get:
+      summary: Gets a single user
+      tags: [ 'Users' ]
+      operationId: GetUser
+      parameters:
+        - in: path
+          description: The user id
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The user
+          schema:
+            $ref: '#/definitions/User'
+    post:
+      summary: Updates a user
+      tags: []
+      operationId: UpdateUser
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{Id}/Authenticate':
+    post:
+      summary: Authenticates a user
+      tags: []
+      operationId: AuthenticateUser
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{Id}/Configuration':
+    post:
+      summary: Updates a user configuration
+      tags: []
+      operationId: UpdateUserConfiguration
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{Id}/Connect/Link':
+    delete:
+      summary: Removes a Connect link for a user
+      tags: []
+      operationId: DeleteConnectLink
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{Id}/EasyPassword':
+    post:
+      summary: Updates a user's easy password
+      tags: []
+      operationId: UpdateUserEasyPassword
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{Id}/Images/{Type}':
+    delete:
+      tags: []
+      operationId: DeleteUserImage
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: Type
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{Id}/Images/{Type}/{Index}':
+    delete:
+      tags: []
+      operationId: DeleteUserImageIndex
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: Type
+          required: true
+          type: string
+        - in: path
+          name: Index
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{Id}/Offline':
+    get:
+      summary: Gets an offline user record by Id
+      tags: []
+      operationId: GetOfflineUser
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{Id}/Password':
+    post:
+      summary: Updates a user's password
+      tags: []
+      operationId: UpdateUserPassword
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{Id}/Policy':
+    post:
+      summary: Updates a user policy
+      tags: []
+      operationId: UpdateUserPolicy
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{UserId}/FavoriteItems/{Id}':
+    delete:
+      summary: Unmarks an item as a favorite
+      tags: []
+      operationId: UnmarkFavoriteItem
+      parameters:
+        - in: path
+          name: UserId
+          required: true
+          type: string
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{UserId}/GroupingOptions':
+    get:
+      tags: []
+      operationId: GetGroupingOptions
+      parameters:
+        - in: path
+          name: UserId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{UserId}/Items':
+    get:
+      summary: Gets items based on a query.
+      tags: [ 'Users' ]
+      operationId: GetItems
+      parameters:
+        - in: path
+          name: UserId
+          required: true
+          type: string
+        - in: query
+          name: recursive
+          type: boolean
+        - in: query
+          name: Limit
+          type: integer
+        - in: query
+          name: StartIndex
+          type: integer
+        - in: query
+          name: ParentId
+          type: string
+        - in: query
+          name: SortBy
+          type: string
+        - in: query
+          name: sortOrder
+          type: string
+        - in: query
+          name: SeriesStatuses
+          type: string
+        - in: query
+          name: Fields
+          type: array
+          items:
+            $ref: '#/definitions/FieldTypes'
+        - in: query
+          name: Filters
+          type: string
+        - in: query
+          name: ImageTypes
+          type: string
+        - in: query
+          name: Is3D
+          type: boolean
+        - in: query
+          name: AirDays
+          type: string
+        - in: query
+          name: VideoTypes
+          type: string
+        - in: query
+          name: MinOfficialRating
+          type: string
+        - in: query
+          name: MaxOfficialRating
+          type: string
+        - in: query
+          name: MinIndexNumber
+          type: integer
+        - in: query
+          name: MediaTypes
+          type: array
+          items:
+            $ref: '#/definitions/MediaType'
+        - in: query
+          name: Genres
+          type: string
+        - in: query
+          name: GenreIds
+          type: string
+        - in: query
+          name: Ids
+          type: array
+          items:
+            type: string
+          collectionFormat: csv
+        - in: query
+          name: StudioIds
+          type: string
+        - in: query
+          name: ExcludeItemTypes
+          type: array
+          items:
+            type: string
+            enum:
+              - Audio
+              - Video
+              - Folder
+              - Episode
+              - Movie
+              - Trailer
+              - AdultVideo
+              - MusicVideo
+              - BoxSet
+              - MusicAlbum
+              - MusicArtist
+              - Seasons
+              - Series
+              - Game
+              - GameSystem
+              - Book
+              - Playlist
+        - in: query
+          name: IncludeItemTypes
+          type: array
+          items:
+            type: string
+            enum:
+              - Audio
+              - Video
+              - Folder
+              - Episode
+              - Movie
+              - Trailer
+              - AdultVideo
+              - MusicVideo
+              - BoxSet
+              - MusicAlbum
+              - MusicArtist
+              - Seasons
+              - Series
+              - Game
+              - GameSystem
+              - Book
+              - Playlist
+        - in: query
+          name: ArtistIds
+          type: string
+        - in: query
+          name: IsPlayed
+          type: string
+        - in: query
+          name: IsInBoxSet
+          type: string
+        - in: query
+          name: PersonIds
+          type: string
+        - in: query
+          name: PersonTypes
+          type: string
+        - in: query
+          name: Years
+          type: string
+        - in: query
+          name: ParentIndexNumber
+          type: string
+        - in: query
+          name: IsHD
+          type: string
+        - in: query
+          name: HasParentalRating
+          type: string
+        - in: query
+          name: SearchTerm
+          type: string
+        - in: query
+          name: MinCriticRating
+          type: string
+        - in: query
+          name: MinCommunityRating
+          type: string
+        - in: query
+          name: MinPlayers
+          type: integer
+        - in: query
+          name: MaxPlayers
+          type: integer
+        - in: query
+          name: NameStartsWithOrGreater
+          type: string
+        - in: query
+          name: NameStartsWith
+          type: string
+        - in: query
+          name: NameLessThan
+          type: string
+        - in: query
+          name: AlbumArtistStartsWithOrGreater
+          type: string
+        - in: query
+          name: LocationTypes
+          type: array
+          items:
+            type: string
+            enum: [ FileSystem, Remote, Virtual, Offline ]
+        - in: query
+          name: ExcludeLocationTypes
+          type: array
+          items:
+            type: string
+            enum: [ FileSystem, Remote, Virtual, Offline ]
+        - in: query
+          name: IsMissing
+          type: boolean
+        - in: query
+          name: IsUnaired
+          type: boolean
+        - in: query
+          name: IsVirtualUnaired
+          type: boolean
+        - in: query
+          name: EnableImages
+          type: boolean
+        - in: query
+          name: ImageTypeLimit
+          type: string
+        - in: query
+          name: EnableImageTypes
+          type: boolean
+        - in: query
+          name: AiredDuringSeason
+          type: boolean
+        - in: query
+          name: EnableTotalRecordCount
+          type: boolean
+        - in: query
+          name: format
+          type: string
+          required: true
+          enum: [json]
+      responses:
+        '200':
+          description:
+          schema:
+            $ref: '#/definitions/ItemsResult'
+  '/Users/{UserId}/Items/{Id}':
+    get:
+      summary: Gets an item from a user's library
+      tags: [ 'Users' ]
+      operationId: GetItem
+      parameters:
+        - in: path
+          name: UserId
+          required: true
+          type: string
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Item'
+  '/Users/{UserId}/Items/{Id}/Intros':
+    get:
+      summary: Gets intros to play before the main media item plays
+      tags: []
+      operationId: GetIntros
+      parameters:
+        - in: path
+          name: UserId
+          required: true
+          type: string
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{UserId}/Items/{Id}/LocalTrailers':
+    get:
+      summary: Gets local trailers for an item
+      tags: []
+      operationId: GetLocalTrailers
+      parameters:
+        - in: path
+          name: UserId
+          required: true
+          type: string
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{UserId}/Items/{Id}/Rating':
+    post:
+      summary: Updates a user's rating for an item
+      tags: []
+      operationId: UpdateUserItemRating
+      parameters:
+        - in: path
+          name: UserId
+          required: true
+          type: string
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{UserId}/Items/{Id}/SpecialFeatures':
+    get:
+      summary: Gets special features for an item
+      tags: []
+      operationId: GetSpecialFeatures
+      parameters:
+        - in: path
+          name: UserId
+          required: true
+          type: string
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{UserId}/Items/Latest':
+    get:
+      summary: Gets latest media
+      tags: []
+      operationId: GetLatestMedia
+      parameters:
+        - in: path
+          name: UserId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{UserId}/Items/Resume':
+    get:
+      summary: Gets items based on a query.
+      tags: []
+      operationId: GetResumeItems
+      parameters:
+        - in: path
+          name: UserId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{UserId}/Items/Root':
+    get:
+      summary: Gets the root folder from a user's library
+      tags: []
+      operationId: GetRootFolder
+      parameters:
+        - in: path
+          name: UserId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{UserId}/PlayedItems/{Id}':
+    delete:
+      summary: Marks an item as unplayed
+      tags: []
+      operationId: MarkUnplayedItem
+      parameters:
+        - in: path
+          name: UserId
+          required: true
+          type: string
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{UserId}/PlayingItems/{Id}':
+    delete:
+      summary: Reports that a user has stopped playing an item
+      tags: []
+      operationId: OnPlaybackStopped
+      parameters:
+        - in: path
+          name: UserId
+          required: true
+          type: string
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{UserId}/PlayingItems/{Id}/Progress':
+    post:
+      summary: Reports a user's playback progress
+      tags: []
+      operationId: OnPlaybackProgress
+      parameters:
+        - in: path
+          name: UserId
+          required: true
+          type: string
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{UserId}/Suggestions':
+    get:
+      summary: Gets items based on a query.
+      tags: []
+      operationId: GetSuggestedItems
+      parameters:
+        - in: path
+          name: UserId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Users/{UserId}/Views':
+    get:
+      tags: []
+      operationId: GetUserViews
+      parameters:
+        - in: path
+          name: UserId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Users/AuthenticateByName:
+    post:
+      summary: Authenticates a user
+      tags: ['Users']
+      operationId: AuthenticateUserByName
+      produces:
+        - application/json
+      parameters:
+        - name: userPassword
+          in: body
+          schema:
+            type: object
+            description: User name and password to send for authentication
+            required: [ 'Username', 'Pw', 'Password', 'PasswordMd5' ]
+            properties:
+              Username:
+                type: string
+                description: The user name
+              Pw:
+                type: string
+                description: The plain text password
+              Password:
+                type: string
+                description: A SHA-1 hashed version of the password
+              PasswordMd5:
+                type: string
+                description: An MD5 hashed version of the password
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/AuthenticatedUser'
+        '401':
+          description: Unrecognized user name or password
+          schema:
+            type: string
+  /Users/ForgotPassword:
+    post:
+      summary: Initiates the forgot password process for a local user
+      tags: []
+      operationId: ForgotPassword
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Users/ForgotPassword/Pin:
+    post:
+      summary: Redeems a forgot password pin
+      tags: []
+      operationId: ForgotPasswordPin
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Users/New:
+    post:
+      summary: Creates a user
+      tags: []
+      operationId: CreateUserByName
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Users/Public:
+    get:
+      summary: Gets a list of publicly visible users for display on a login screen.
+      tags: ['Users']
+      operationId: GetPublicUsers
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+      security: []
+  '/Videos/{Id}/{MediaSourceId}/Subtitles/{Index}/{StartPositionTicks}/Stream.{Format}':
+    get:
+      summary: Gets subtitles in a specified format.
+      tags: []
+      operationId: GetSubtitleAtPosition
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: MediaSourceId
+          required: true
+          type: string
+        - in: path
+          name: Index
+          required: true
+          type: string
+        - in: path
+          name: StartPositionTicks
+          required: true
+          type: integer
+          format: int64
+        - in: path
+          name: Format
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Videos/{Id}/{MediaSourceId}/Subtitles/{Index}/Stream.{Format}':
+    get:
+      summary: Gets subtitles in a specified format.
+      tags: []
+      operationId: GetSubtitle
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: MediaSourceId
+          required: true
+          type: string
+        - in: path
+          name: Index
+          required: true
+          type: string
+        - in: path
+          name: Format
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Videos/{Id}/{MediaSourceId}/Subtitles/{Index}/subtitles.m3u8':
+    get:
+      summary: Gets an HLS subtitle playlist.
+      tags: []
+      operationId: GetSubtitlePlaylist
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: MediaSourceId
+          required: true
+          type: string
+        - in: path
+          name: Index
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Videos/{Id}/AdditionalParts':
+    get:
+      summary: Gets additional parts for a video.
+      tags: []
+      operationId: GetAdditionalParts
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Videos/{Id}/AlternateSources':
+    delete:
+      summary: Removes alternate video sources.
+      tags: []
+      operationId: DeleteAlternateSources
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Videos/{Id}/hls/{PlaylistId}/{SegmentId}.{SegmentContainer}':
+    get:
+      tags: []
+      operationId: GetHlsVideoSegmentLegacy
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: PlaylistId
+          required: true
+          type: string
+        - in: path
+          name: SegmentId
+          required: true
+          type: string
+        - in: path
+          name: SegmentContainer
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Videos/{Id}/hls1/{PlaylistId}/{SegmentId}.{SegmentContainer}':
+    head:
+      tags: []
+      operationId: GetVideoHlsSegment
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: PlaylistId
+          required: true
+          type: string
+        - in: path
+          name: SegmentId
+          required: true
+          type: string
+        - in: path
+          name: SegmentContainer
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Videos/{Id}/live.m3u8':
+    get:
+      tags: []
+      operationId: GetLiveHlsStream
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Videos/{Id}/main.m3u8':
+    get:
+      summary: Gets a video stream using HTTP live streaming.
+      tags: []
+      operationId: GetVariantVideoHlsVideoPlaylist
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Videos/{Id}/master.m3u8':
+    head:
+      summary: Gets a video stream using HTTP live streaming.
+      tags: []
+      operationId: GetMasterHlsVideoPlaylist
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Videos/{Id}/stream':
+    head:
+      tags: []
+      operationId: GetVideoStream
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Videos/{Id}/stream.{Container}':
+    head:
+      tags: []
+      operationId: GetVideoStreamContainer
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: Container
+          required: true
+          type: string
+          enum: [3gp, asf, avi, flv, iso, m2ts, m4v, mkv, mov, mp4, mpeg, mpegts, mpg, ogv, ts, webm, wmv, wtv]
+      responses:
+        '200':
+          description: OK
+  '/Videos/{Id}/Subtitles/{Index}':
+    delete:
+      summary: Deletes an external subtitle file
+      tags: []
+      operationId: DeleteSubtitle
+      parameters:
+        - in: path
+          name: Id
+          required: true
+          type: string
+        - in: path
+          name: Index
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /Videos/ActiveEncodings:
+    delete:
+      tags: []
+      operationId: StopEncodingProcess
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Videos/MergeVersions:
+    post:
+      summary: Merges videos into a single record
+      tags: []
+      operationId: MergeVersions
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /web/ConfigurationPage:
+    get:
+      tags: []
+      operationId: GetDashboardConfigurationPage
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /web/ConfigurationPages:
+    get:
+      tags: []
+      operationId: GetDashboardConfigurationPages
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /Years:
+    get:
+      summary: 'Gets all years from a given item, folder, or the entire library'
+      tags: []
+      operationId: GetYears
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  '/Years/{Year}':
+    get:
+      summary: Gets a year
+      tags: []
+      operationId: GetYear
+      parameters:
+        - in: path
+          name: Year
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Years/{Year}/Images/{Type}':
+    head:
+      tags: []
+      operationId: GetYearsByNameImage
+      parameters:
+        - in: path
+          name: Year
+          required: true
+          type: string
+        - in: path
+          name: Type
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  '/Years/{Year}/Images/{Type}/{Index}':
+    head:
+      tags: []
+      operationId: GetYearsByNameImageIndex
+      parameters:
+        - in: path
+          name: Year
+          required: true
+          type: string
+        - in: path
+          name: Type
+          required: true
+          type: string
+        - in: path
+          name: Index
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+definitions:
+  Item:
+    type: object
+    discriminator: Type
+    required: [ Id, Type ]
+    x-allow-unknown: true
+    properties:
+      Id:
+        type: string
+        description: The unique identifier representing this item
+      Name:
+        type: string
+        description: The display name
+      ServerId:
+        type: string
+        description: The server identifier
+      Type:
+        type: string
+        description: The type of item. The list of valid options is based on the type.
+      BackdropImageTags:
+        type: array
+        items:
+          type: string
+      CanDelete:
+        type: boolean
+        default: false
+      CanDownload:
+        type: boolean
+      CommunityRating:
+        type: number
+        format: float
+      CustomRating:
+        type: string
+      DateCreated:
+        type: string
+        format: date-time
+      DisplayPreferencesId:
+        type: string
+      Etag:
+        type: string
+      ExternalUrls:
+        type: array
+        items:
+          type: object
+          properties:
+            Name:
+              type: string
+            Url:
+              type: string
+      ForcedSortName:
+        type: string
+      GenreItems:
+        type: array
+        items:
+          $ref: '#/definitions/NameIdPair'
+      Genres:
+        type: array
+        items:
+          type: string
+      HomePageUrl:
+        type: string
+      ImageTags:
+        type: object
+        properties:
+          Banner:
+            type: string
+          Logo:
+            type: string
+          Primary:
+            type: string
+          Thumb:
+            type: string
+      IsFolder:
+        type: boolean
+      LocalTrailerCount:
+        type: integer
+      LocationType:
+        type: string
+        enum: [ FileSystem, Remote, Virtual, Offline ]
+      LockData:
+        type: boolean
+      LockedFields:
+        type: array
+        items:
+          type: string
+      OfficialRating:
+        type: string
+      Overview:
+        type: string
+      Path:
+        type: string
+        description: The path on the filesystem
+      ParentBackdropItemId:
+        type: string
+      ParentBackdropImageTags:
+        type: array
+        items:
+          type: string
+      ParentId:
+        type: string
+      ParentLogoImageTag:
+        type: string
+      ParentLogoItemId:
+        type: string
+      ParentThumbImageTag:
+        type: string
+      ParentThumbItemId:
+        type: string
+      People:
+        type: array
+        items:
+          type: object
+          properties:
+            Name:
+              type: string
+            Id:
+              type: string
+            Role:
+              type: string
+            Type:
+              type: string
+              enum: [ 'Actor', 'Composer', 'Director', 'Guest star', 'Producer', 'Writer' ]
+            PrimaryImageTag:
+              type: string
+      PlayAccess:
+        type: string
+        enum: [ 'Full' ]
+      PreferredMetadataLanguage:
+        type: string
+      PreferredMetadataCountryCode:
+        type: string
+      PremiereDate:
+        type: string
+        format: date-time
+      PrimaryImageAspectRatio:
+        type: number
+        format: float
+      ProductionYear:
+        type: integer
+      ProviderIds:
+        type: object
+        additionalProperties:
+          type: string
+      RemoteTrailers:
+        type: array
+        items:
+          type: object
+          properties:
+            Name:
+              type: string
+            Url:
+              type: string
+      RunTimeTicks:
+        type: integer
+        format: int64
+      ScreenshotImageTags:
+        type: array
+        items:
+          type: string
+      SortName:
+        type: string
+      Studios:
+        type: array
+        items:
+          $ref: '#/definitions/NameIdPair'
+      SupportsSync:
+        type: boolean
+      Taglines:
+        type: array
+        items:
+          type: string
+      Tags:
+        type: array
+        items:
+          type: string
+      UserData:
+        $ref: '#/definitions/UserData'
+  Folder:
+    description: A folder object
+    allOf:
+      - $ref: '#/definitions/Item'
+      - type: object
+        properties:
+          CumulativeRunTimeTicks:
+            type: integer
+            format: int64
+          ChildCount:
+            type: integer
+          DisplayOrder:
+            type: string
+          RecursiveItemCount:
+            type: integer
+  Leaf:
+    allOf:
+      - $ref: '#/definitions/Item'
+      - type: object
+        properties:
+          Chapters:
+            type: array
+            items:
+              type: object
+              properties:
+                StartPositionTicks:
+                  type: integer
+                  format: int64
+                Name:
+                  type: string
+          CriticRating:
+            type: integer
+          Container:
+            type: string
+          HasSubtitles:
+            type: boolean
+          IsHD:
+            type: boolean
+          MediaSources:
+            type: array
+            items:
+              $ref: '#/definitions/MediaSource'
+          MediaStreams:
+            type: array
+            items:
+              $ref: '#/definitions/MediaStream'
+          MediaType:
+            $ref: '#/definitions/MediaType'
+          OriginalTitle:
+            type: string
+          ProductionLocations:
+            type: array
+            items:
+              type: string
+          SpecialFeatureCount:
+            type: integer
+          VideoType:
+            type: string
+            enum: [ 'VideoFile' ]
+  Channel:
+    allOf:
+      - $ref: '#/definitions/Leaf'
+      - type: object
+        properties:
+          ChannelId:
+            type: string
+          ChannelName:
+            type: string
+          ExtraType:
+            type: string
+          SourceType:
+            type: string
+  Audio:
+    allOf:
+      - $ref: '#/definitions/Leaf'
+      - type: object
+        properties:
+          IndexNumber:
+            type: integer
+          ParentIndexNumber:
+            type: integer
+          Album:
+            type: string
+          AlbumId:
+            type: string
+          AlbumArtist:
+            type: string
+          AlbumArtists:
+            type: array
+            items:
+              $ref: '#/definitions/NameIdPair'
+          AlbumPrimaryImageTag:
+            type: string
+          Artists:
+            type: array
+            items:
+              type: string
+          ArtistItems:
+            type: array
+            items:
+              $ref: '#/definitions/NameIdPair'
+  BoxSet:
+    allOf:
+      - $ref: '#/definitions/Folder'
+  Collection:
+    allOf:
+      - $ref: '#/definitions/Folder'
+      - type: object
+        properties:
+          CollectionType:
+            type: string
+            enum: [ 'boxsets', 'playlists', 'homevideos', 'music', 'tvshows', 'movies' ]
+  CollectionFolder:
+    allOf:
+      - $ref: '#/definitions/Collection'
+  Movie:
+    allOf:
+      - $ref: '#/definitions/Leaf'
+  MusicArtist:
+    allOf:
+      - $ref: '#/definitions/Leaf'
+      - type: object
+        properties:
+          ChildCount:
+            type: integer
+          SongCount:
+            type: integer
+          AlbumCount:
+            type: integer
+          MusicVideoCount:
+            type: integer
+  MusicAlbum:
+    allOf:
+      - $ref: '#/definitions/Folder'
+      - type: object
+        properties:
+          Artists:
+            type: array
+            items:
+              type: string
+          ArtistItems:
+            type: array
+            items:
+              $ref: '#/definitions/NameIdPair'
+          AlbumArtist:
+            type: string
+          AlbumArtists:
+            type: array
+            items:
+              $ref: '#/definitions/NameIdPair'
+  Photo:
+    allOf:
+      - $ref: '#/definitions/Leaf'
+      - type: object
+        properties:
+          Album:
+            type: string
+          AlbumId:
+            type: string
+          Width:
+            type: integer
+          Height:
+            type: integer
+          CameraMake:
+            type: string
+          CameraModel:
+            type: string
+          Software:
+            type: string
+          ExposureTime:
+            type: number
+            format: float
+          FocalLength:
+            type: integer
+          ImageOrientation:
+            type: string
+          IsoSpeedRating:
+            type: integer
+  PhotoAlbum:
+    allOf:
+      - $ref: '#/definitions/Folder'
+  Playlist:
+    allOf:
+      - $ref: '#/definitions/Folder'
+  PlaylistsFolder:
+    allOf:
+      - $ref: '#/definitions/Collection'
+  Series:
+    allOf:
+      - $ref: '#/definitions/Folder'
+      - type: object
+        properties:
+          Status:
+            type: string
+            enum: [ 'Continuing' ]
+          AirTime:
+            type: string
+          AirDays:
+            type: array
+            items:
+              type: string
+              enum: [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ]
+  Trailer:
+    allOf:
+      - $ref: '#/definitions/Channel'
+  Video:
+    allOf:
+      - $ref: '#/definitions/Leaf'
+  AuthenticatedUser:
+    type: object
+    properties:
+      User:
+        $ref: '#/definitions/User'
+      SessionInfo:
+        $ref: '#/definitions/SessionInfo'
+      AccessToken:
+        type: string
+        description: The token to send on all subsequent requests
+      ServerId:
+        type: string
+  FieldTypes:
+    type: string
+    enum:
+      - AirDays
+      - AirTime
+      - Album
+      - AlbumArtist
+      - AlbumArtists
+      - AlbumCount
+      - AlbumId
+      - AlbumPrimaryImageTag
+      - ArtistItems
+      - Artists
+      - BackdropImageTags
+      - CameraMake
+      - CameraModel
+      - CanDelete
+      - CanDownload
+      - ChannelId
+      - ChannelName
+      - Chapters
+      - ChildCount
+      - CollectionType
+      - CommunityRating
+      - Container
+      - CriticRating
+      - CumulativeRunTimeTicks
+      - CustomRating
+      - DateCreated
+      - DisplayOrder
+      - DisplayPreferencesId
+      - Etag
+      - ExposureTime
+      - ExternalUrls
+      - ExtraType
+      - FocalLength
+      - ForcedSortName
+      - GenreItems
+      - Genres
+      - HasSubtitles
+      - Height
+      - HomePageUrl
+      - Id
+      - ImageOrientation
+      - ImageTags
+      - IndexNumber
+      - IsFolder
+      - IsHD
+      - IsoSpeedRating
+      - LocalTrailerCount
+      - LocationType
+      - LockData
+      - LockedFields
+      - MediaSources
+      - MediaStreams
+      - MediaType
+      - MusicVideoCount
+      - Name
+      - OfficialRating
+      - OriginalTitle
+      - Overview
+      - ParentId
+      - ParentIndexNumber
+      - ParentThumbImageTag
+      - ParentThumbItemId
+      - Path
+      - People
+      - PlayAccess
+      - PreferredMetadataCountryCode
+      - PreferredMetadataLanguage
+      - PremiereDate
+      - PrimaryImageAspectRatio
+      - ProductionLocations
+      - ProductionYear
+      - ProviderIds
+      - RecursiveItemCount
+      - RemoteTrailers
+      - RunTimeTicks
+      - ScreenshotImageTags
+      - ServerId
+      - Software
+      - SongCount
+      - SortName
+      - SourceType
+      - SpecialFeatureCount
+      - Status
+      - Studios
+      - SupportsSync
+      - Taglines
+      - Tags
+      - Type
+      - UserData
+      - VideoType
+      - Width            
+  PlaylistItemsResult:
+    type: object
+    properties:
+      Items:
+        type: array
+        items:
+          $ref: '#/definitions/Item'
+      TotalRecordCount:
+        type: integer
+  IdOnly:
+    type: object
+    required: [ Id ]
+    properties:
+      Id:
+        type: string
+  ItemsResult:
+    type: object
+    properties:
+      Items:
+        type: array
+        items:
+          $ref: '#/definitions/Item'
+      TotalRecordCount:
+        type: integer
+  MediaSource:
+    type: object
+    properties:
+      Protocol:
+        type: string
+      Id:
+        type: string
+      Path:
+        type: string
+      Type:
+        type: string
+      Container:
+        type: string
+      Name:
+        type: string
+      IsRemote:
+        type: boolean
+      ETag:
+        type: string
+      RunTimeTicks:
+        type: integer
+        format: int64
+      ReadAtNativeFramerate:
+        type: boolean
+      IgnoreDts:
+        type: boolean
+      IgnoreIndex:
+        type: boolean
+      GenPtsInput:
+        type: boolean
+      SupportsTranscoding:
+        type: boolean
+      SupportsDirectStream:
+        type: boolean
+      SupportsDirectPlay:
+        type: boolean
+      IsInfiniteStream:
+        type: boolean
+      RequiresOpening:
+        type: boolean
+      RequiresClosing:
+        type: boolean
+      SupportsProbing:
+        type: boolean
+      RequiresLooping:
+        type: boolean
+      VideoType:
+        type: string
+      MediaStreams:
+        type: array
+        items:
+          $ref: '#/definitions/MediaStream'
+      Formats:
+        type: array
+        items:
+          type: string
+      Bitrate:
+        type: integer
+      RequiredHttpHeaders:
+        type: array
+        items:
+          type: string
+      DefaultAudioStreamIndex:
+        type: integer
+      DefaultSubtitleStreamIndex:
+        type: integer
+  MediaStream:
+    type: object
+    properties:
+      Codec:
+        type: string
+      Comment:
+        type: string
+      Language:
+        type: string
+      TimeBase:
+        type: string
+      CodecTimeBase:
+        type: string
+      Title:
+        type: string
+      DisplayTitle:
+        type: string
+      NalLengthSize:
+        type: string
+      IsInterlaced:
+        type: boolean
+      IsAVC:
+        type: boolean
+      ChannelLayout:
+        type: string
+      BitRate:
+        type: integer
+      Channels:
+        type: integer
+      SampleRate:
+        type: integer
+      BitDepth:
+        type: integer
+      RefFrames:
+        type: integer
+      IsDefault:
+        type: boolean
+      IsForced:
+        type: boolean
+      Height:
+        type: integer
+      Width:
+        type: integer
+      AverageFrameRate:
+        type: number
+        format: float
+      RealFrameRate:
+        type: number
+        format: float
+      Profile:
+        type: string
+      Type:
+        type: string
+        enum: [ 'Video', 'Audio', 'Subtitle', 'EmbeddedImage' ]
+      AspectRatio:
+        type: string
+      Index:
+        type: integer
+      Score:
+        type: integer
+      IsExternal:
+        type: boolean
+      IsTextSubtitleStream:
+        type: boolean
+      SupportsExternalStream:
+        type: boolean
+      PixelFormat:
+        type: string
+      Level:
+        type: integer
+      Path:
+        type: string
+      IsAnamorphic:
+        type: boolean
+  MediaType:
+    type: string
+    enum: [ 'Video', 'Photo', 'Audio' ]
+  NameIdPair:
+    type: object
+    required: [ 'Name', 'Id' ]
+    properties:
+      Name:
+        type: string
+      Id:
+        type: string
+  PlayRequest:
+    type: object
+    properties:
+      ItemIds:
+        type: array
+        items:
+          type: string
+      StartPositionTicks:
+        type: integer
+        format: int64
+      AudioStreamIndex:
+        type: integer
+      SubtitleStreamIndex:
+        type: integer
+      StartIndex:
+        type: integer
+      MediaSourceId:
+        type: string
+      PlayCommand:
+        type: string
+      ControllingUserId:
+        type: string
+        enum: [ 'PlayNow', 'PlayNext', 'PlayLast', 'PlayInstantMix', 'PlayShuffle' ]
+  PlayStateInfo:
+    type: object
+    properties:
+      PositionTicks:
+        type: integer
+        format: int64
+        description: The now playing position in ticks
+      CanSeek:
+        type: boolean
+      IsPaused:
+        type: boolean
+        description: If this instance is paused
+      IsMuted:
+        type: boolean
+        description: If this instance is muted
+      VolumeLevel:
+        type: integer
+      AudioStreamIndex:
+        type: integer
+        description: The index of the now playing audio stream
+      SubtitleStreamIndex:
+        type: integer
+        description: The index of the now playing subtitle stream
+      MediaSourceId:
+        type: string
+        description: The now playing media version identifier
+      PlayMethod:
+        type: string
+        enum: [ Transcode, DirectStream, DirectPlay ]
+      RepeatMode:
+        type: string
+        enum: [ RepeatNone, RepeatAll, RepeatOne ]
+  ServerInfo:
+    type: object
+    properties:
+      LocalAddress:
+        type: string
+        description: The address to access within the local LAN
+      WanAddress:
+        type: string
+        description: The address to access from the Internet
+      ServerName:
+        type: string
+        description: The name of the server
+      Version:
+        type: string
+        description: The version of Emby running on the server
+      OperatingSystem:
+        type: string
+        description: The Operating System of the host running Emby
+      Id:
+        type: string
+        description: The unique ID of the Emby server
+  SessionInfo:
+    type: object
+    description: Describes a Session
+    required: [ 'Id', 'UserId', 'DeviceId' ]
+    properties:
+      SupportedCommands:
+        type: array
+        items:
+          type: string
+      QueueableMediaTypes:
+        type: array
+        items:
+          type: string
+      PlayableMediaTypes:
+        type: array
+        items:
+          type: string
+      Id:
+        type: string
+      UserId:
+        type: string
+      UserPrimaryImageTag:
+        type: string
+      UserName:
+        type: string
+        description: The name of the user
+      AdditionalUsers:
+        type: array
+        description: Additional users present
+        items:
+          type: string
+      ApplicationVersion: 
+        type: string
+      Client:
+        type: string
+        description: The type of client
+      LastActivityDate:
+        type: string
+      NowViewingItem:
+        $ref: '#/definitions/Item'
+      DeviceName:
+        type: string
+      NowPlayingItem:
+        $ref: '#/definitions/Item'
+      DeviceId:
+        type: string
+      AppIconUrl:
+        type: string
+      SupportsRemoteControl:
+        type: boolean
+        description: If the session supports remote control
+      PlayState:
+        $ref: '#/definitions/PlayStateInfo'
+      TranscodingInfo:
+        $ref: '#/definitions/TranscodingInfo'
+  SystemInfo:
+    allOf:
+      - type: object
+        properties:
+          SystemUpdateLevel:
+            type: string
+          OperatingSystemDisplayName:
+            type: string
+          MacAddress:
+            type: string
+          HasPendingRestart:
+            type: boolean
+          IsShuttingDown:
+            type: boolean
+          SupportsLibraryMonitor:
+            type: boolean
+          InProgressInstallations:
+            type: array
+            items:
+              type: string
+          WebSocketPortNumber:
+            type: integer
+          CompletedInstallations:
+            type: array
+            items:
+              type: string
+          CanSelfRestart:
+            type: boolean
+          CanSelfUpdate:
+            type: boolean
+          CanLaunchWebBrowser:
+            type: boolean
+          FailedPluginAssemblies:
+            type: array
+            items:
+              type: string
+          ProgramDataPath:
+            type: string
+          ItemsByNamePath:
+            type: string
+          CachePath:
+            type: string
+          LogPath:
+            type: string
+          InternalMetadataPath:
+            type: string
+          TranscodingTempPath:
+            type: string
+          HttpServerPortNumber:
+            type: integer
+          SupportsHttps:
+            type: boolean
+          HttpsPortNumber:
+            type: integer
+          HasUpdateAvailable:
+            type: boolean
+          SupportsAutoRunAtStartup:
+            type: boolean
+          EncoderLocationType:
+            type: string
+          SystemArchitecture:
+            type: string
+      - $ref: '#/definitions/ServerInfo'
+  TranscodingInfo:
+    type: object
+    properties:
+      AudioCodec:
+        type: string
+      VideoCodec:
+        type: string
+      Container:
+        type: string
+      IsVideoDirect:
+        type: boolean
+      IsAudioDirect:
+        type: boolean
+      BitRate:
+        type: integer
+      Framerate:
+        type: number
+        format: float
+      CompletionPercentage:
+        type: number
+        format: double
+      Width:
+        type: integer
+      Height:
+        type: integer
+      AudioChannels:
+        type: integer
+  User:
+    type: object
+    description: Describes a 
+    required: [ Id, Name, ServerId ]
+    properties:
+      Id:
+        type: string
+        description: The unique identifier of this user
+      Name:
+        type: string
+      ServerId:
+        type: string
+        description: The server id that this user is associated with
+      ConnectUserName:
+        type: string
+      ConnectUserId:
+        type: string
+      ConnectLinkType:
+        type: string
+      HasPassword:
+        type: boolean
+      HasConfiguredPassword:
+        type: boolean
+      HasConfiguredEasyPassword:
+        type: boolean
+      LastLoginDate:
+        type: string
+      LastActivityDate:
+        type: string
+      Configuration:
+        type: object
+        properties:
+          AudioLanguagePreference:
+            type: string
+          PlayDefaultAudioTrack:
+            type: boolean
+          SubtitleLanguagePreference:
+            type: string
+          DisplayMissingEpisodes:
+            type: boolean
+          GroupedFolders:
+            type: array
+            items:
+              type: string
+          SubtitleMode:
+            type: string
+          DisplayCollectionsView:
+            type: boolean
+          EnableLocalPassword:
+            type: boolean
+          OrderedViews:
+            type: array
+            items:
+              type: string
+          LatestItemsExcludes:
+            type: array
+            items:
+              type: string
+          HidePlayedInLatest:
+            type: boolean
+          RememberAudioSelections:
+            type: boolean
+          RememberSubtitleSelections:
+            type: boolean
+          EnableNextEpisodeAutoPlay:
+            type: boolean
+      Policy:
+        type: object
+        properties:
+          IsAdministrator:
+            type: boolean
+          IsHidden:
+            type: boolean
+          IsDisabled:
+            type: boolean
+          BlockedTags:
+            type: array
+            items:
+              type: string
+          EnableUserPreferenceAccess:
+            type: boolean
+          AccessSchedules:
+            type: array
+            items:
+              type: string
+          BlockUnratedItems:
+            type: array
+            items:
+              type: string
+          EnableRemoteControlOfOtherUsers:
+            type: boolean
+          EnableSharedDeviceControl:
+            type: boolean
+          EnableLiveTvManagement:
+            type: boolean
+          EnableLiveTvAccess:
+            type: boolean
+          EnableMediaPlayback:
+            type: boolean
+          EnableAudioPlaybackTranscoding:
+            type: boolean
+          EnableVideoPlaybackTranscoding:
+            type: boolean
+          EnablePlaybackRemuxing:
+            type: boolean
+          EnableContentDeletion:
+            type: boolean
+          EnableContentDeletionFromFolders:
+            type: array
+            items:
+              type: string
+          EnableContentDownloading:
+            type: boolean
+          EnableSyncTranscoding:
+            type: boolean
+          EnabledDevices:
+            type: array
+            items:
+              type: string
+          EnableAllDevices:
+            type: boolean
+          EnabledChannels:
+            type: array
+            items:
+              type: string
+          EnableAllChannels:
+            type: boolean
+          EnabledFolders:
+            type: array
+            items:
+              type: string
+          EnableAllFolders:
+            type: boolean
+          InvalidLoginAttemptCount:
+            type: integer
+          EnablePublicSharing:
+            type: boolean
+          RemoteClientBitrateLimit:
+            type: integer
+  UserData:
+    type: object
+    properties:
+      PlayedPercentage:
+        type: integer
+      UnplayedItemCount:
+        type: integer
+      PlaybackPositionTicks:
+        type: integer
+        format: int64
+      PlayCount:
+        type: integer
+      IsFavorite:
+        type: boolean
+      Played:
+        type: boolean
+      Key:
+        type: string
+      ItemId:
+        type: string
+  UserDataChange:
+    type: object
+    properties:
+      UserId:
+        type: string
+      UserDataList:
+        type: array
+        items:
+          $ref: '#/definitions/UserData'
+  MessageTypes:
+    type: string
+    enum:
+      - ScheduledTaskEnded
+      - SessionEnded
+      - PlaybackStart
+      - PlaybackStopped
+      - UserDataChanged
+  WebsocketMessage:
+    type: object
+    discriminator: MessageType
+    x-allow-unknown: true
+    required: [ 'MessageType' ]
+    properties:
+      MessageType:
+        $ref: '#/definitions/MessageTypes'
+  ScheduledTaskEnded:
+    allOf:
+      - $ref: '#/definitions/WebsocketMessage'
+      - type: object
+        required: [ 'Data' ]
+        properties:
+          Data:
+            $ref: '#/definitions/ScheduledTask'
+  ScheduledTask:
+    type: object
+    properties:
+      Id:
+        type: string
+      Key:
+        type: string
+      Name:
+        type: string
+      Status:
+        type: string
+      StartTimeUtc:
+        type: string
+        format: date-time
+      EndTimeUtc:
+        type: string
+        format: date-time
+  SessionEnded:
+    allOf:
+      - $ref: '#/definitions/WebsocketMessage'
+      - type: object
+        required: [ 'Data' ]
+        properties:
+          Data:
+            $ref: '#/definitions/SessionInfo'
+  PlaybackStart:
+    allOf:
+      - $ref: '#/definitions/WebsocketMessage'
+      - type: object
+        required: [ 'Data' ]
+        properties:
+          Data:
+            $ref: '#/definitions/SessionInfo'
+  PlaybackStopped:
+    allOf:
+      - $ref: '#/definitions/WebsocketMessage'
+      - type: object
+        required: [ 'Data' ]
+        properties:
+          Data:
+            $ref: '#/definitions/SessionInfo'
+  UserDataChanged:
+    allOf:
+      - $ref: '#/definitions/WebsocketMessage'
+      - type: object
+        required: [ 'Data' ]
+        properties:
+          Data:
+            $ref: '#/definitions/UserDataChange'
+securityDefinitions:
+  auth_header:
+    name: X-Emby-Authorization
+    description: Should be in the format of MediaBrowser Client="MyClient", DeviceId="MyDeviceId", Device="MyDeviceName", Version="MyVersion", UserId="MyUserId"
+    type: apiKey
+    in: header
+  access_token:
+    name: X-MediaBrowser-Token
+    description: Token provided by Authenticate call
+    type: apiKey
+    in: header
