@@ -1,6 +1,8 @@
 # emby-swagger
 Expanded Swagger File for Emby
 
+**NOTE: This is NOT the official Swagger for Emby.** This is my own take on improving it to make it usable to Codegen tools. 
+
 By having a more accurate Swagger / OpenAPI 2.0 file for Emby, it becomes much easier to build high quality clients and applications. The auto-generated Swagger file only has a rough outline of available methods, and has almost no parameter or data definitions.
 
 I've converted the file into YAML (I find it easier to work with), performed some cleanup, and added quite a bit of data definitions.
