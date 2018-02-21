@@ -2591,22 +2591,19 @@ paths:
       summary: Adds items to a playlist
       tags: [ 'Playlists' ]
       operationId: AddPlaylistItems
+      consumes:
+        - application/x-www-form-urlencoded
       parameters:
         - in: path
           name: Id
           required: true
           type: string
-        - in: query
+        - in: formData
           name: Ids
           required: true
           type: array
           collectionFormat: csv
           items:
-            type: string
-        - in: body
-          name: empty
-          required: true
-          schema:
             type: string
     delete:
       summary: Removes items from a playlist
@@ -2752,12 +2749,16 @@ paths:
   /Sessions:
     get:
       summary: Gets a list of sessions
-      tags: []
+      tags: [ 'Sessions' ]
       operationId: GetSessions
       parameters: []
       responses:
         '200':
           description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SessionInfo'
   '/Sessions/{Id}/Command':
     post:
       summary: Issues a system command to a client
@@ -5275,9 +5276,9 @@ definitions:
         type: string
       PlayCommand:
         type: string
+        enum: [ 'PlayNow', 'PlayNext', 'PlayLast', 'PlayInstantMix', 'PlayShuffle' ]
       ControllingUserId:
         type: string
-        enum: [ 'PlayNow', 'PlayNext', 'PlayLast', 'PlayInstantMix', 'PlayShuffle' ]
   PlayStateInfo:
     type: object
     properties:
@@ -5334,7 +5335,7 @@ definitions:
   SessionInfo:
     type: object
     description: Describes a Session
-    required: [ 'Id', 'UserId', 'DeviceId' ]
+    required: [ 'Id', 'DeviceId' ]
     properties:
       SupportedCommands:
         type: array
